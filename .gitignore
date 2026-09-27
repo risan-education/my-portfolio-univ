@@ -1,0 +1,10 @@
+# ローカル作業・秘密情報
+.DS_Store
+Thumbs.db
+.env
+.env.*
+!.env.example
+*.tmp
+*.bak
+.scratch/
+# ignoreはアクセス制御ではありません。秘密情報は接続対象の外へ。
