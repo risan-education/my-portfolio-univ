@@ -4,7 +4,7 @@
 
 授業、アルバイト、研究、趣味、生活の工夫を一言で伝えるところから始めます。AIが整理を手伝い、本人が確かめた記録を自分用の保存先へ残します。主目的は、本人の経験に基づくガクチカの作成です。自己分析・仕事選び・ES・面接にもつなげます。同じ記録から、次のChatGPT相談で使う背景情報も作れます。
 
-版: **0.4.0** ／ [ChatGPTの登録・契約から始める](docs/getting-started.md) ／ [ChatGPTへの共通指示](CHATGPT.md) ／ [依頼文を選ぶ](docs/chatgpt-prompts.md)
+版: **0.4.1** ／ [ChatGPTの登録・契約から始める](docs/getting-started.md) ／ [ChatGPTへの共通指示](CHATGPT.md) ／ [依頼文を選ぶ](docs/chatgpt-prompts.md)
 
 ## 初めての人・中高生版から続ける人
 
@@ -64,7 +64,7 @@ IT、メーカー、金融、商社、小売、コンサルティング、広告
 原記録は [experiences](experiences/README.md)、[projects](projects/README.md)、[reflections](reflections/README.md)、[annual-review](annual-review/README.md)。現在の自己紹介は [profile](profile/README.md)、就活の作業場所は [career](career/README.md)、原記録から作る文章は [derived](derived/README.md)。
 [questions.md](questions.md)は問い、[assets](assets/README.md)は外部原本の所在です。
 
-このリポジトリは教材の配布元です。本人の実記録は本人用の非公開リポジトリまたは非公開フォルダへ置き、ChatGPTには今回使う範囲を渡します。共有プロジェクトへ個人的な記録を入れる前に共有相手を確認します。
+このリポジトリは教材の配布元です。本人の実記録は本人用の非公開リポジトリまたは非公開フォルダへ置き、ChatGPTには今回使う範囲を渡します。本人用にコピーした直後は、[教材専用のファイルを整理](docs/github-basics.md#コピーした後に整理する)して、架空例が本人の記録と混ざらないようにします。共有プロジェクトへ個人的な記録を入れる前に共有相手を確認します。
 
 ## この教材の前提
 

@@ -1,6 +1,7 @@
 #requires -Version 7.0
 <#
 Distribution checks only. Never rewrites records or fetches external content.
+Fails when personal record folders hold anything besides README.md, so real records cannot slip into the distribution.
 #>
 [CmdletBinding()]
 param([string]$Root = (Split-Path -Parent $PSScriptRoot))
@@ -37,7 +38,7 @@ function Anchors([string]$Value) {
 
 # Enumerate only distribution directories; personal/private areas are not scanned.
 $files = @(Get-ChildItem -LiteralPath $rootPath -File -Filter '*.md')
-foreach ($dir in @('docs', 'templates', 'examples', 'profile', 'experiences', 'projects', 'reflections', 'annual-review', 'assets', 'career', 'derived')) {
+foreach ($dir in @('docs', 'templates', 'examples', 'profile', 'experiences', 'projects', 'reflections', 'annual-review', 'assets', 'career', 'derived', 'practice')) {
     $path = Join-Path $rootPath $dir
     if (Test-Path -LiteralPath $path) { $files += @(Get-ChildItem -LiteralPath $path -File -Recurse -Filter '*.md') }
 }
@@ -90,7 +91,7 @@ foreach ($file in $files) {
     }
 }
 
-foreach ($required in @('README.md','AGENTS.md','CHATGPT.md','LICENSE','VERSION','CHANGELOG.md','docs/acceptance.md','templates/README.md','examples/README.md','docs/getting-started.md','docs/saving.md','docs/chatgpt-environment.md','docs/my-portfolio-university-requirements.md','docs/copilot.md','docs/claude-code.md','.github/copilot-instructions.md','examples/copilot-workflow.md','docs/chatgpt-prompts.md','examples/chatgpt-workflow.md','docs/gakuchika.md','docs/choosing-gakuchika-theme.md','docs/gakuchika-sources.md','templates/gakuchika.md','templates/gakuchika-theme.md','examples/gakuchika/README.md')) {
+foreach ($required in @('README.md','AGENTS.md','CHATGPT.md','LICENSE','VERSION','CHANGELOG.md','docs/acceptance.md','templates/README.md','examples/README.md','docs/getting-started.md','docs/saving.md','docs/chatgpt-environment.md','docs/my-portfolio-university-requirements.md','docs/copilot.md','docs/claude-code.md','.github/copilot-instructions.md','examples/copilot-workflow.md','docs/chatgpt-prompts.md','examples/chatgpt-workflow.md','docs/gakuchika.md','docs/choosing-gakuchika-theme.md','docs/gakuchika-sources.md','templates/gakuchika.md','templates/gakuchika-theme.md','examples/gakuchika/README.md','CLAUDE.md','CONTRIBUTING.md','SECURITY.md','practice/README.md','.github/PULL_REQUEST_TEMPLATE.md','.github/ISSUE_TEMPLATE/improvement.yml','.github/workflows/release.yml')) {
     if (-not (Test-Path -LiteralPath (Join-Path $rootPath $required))) { Report "missing required file: $required" }
 }
 if (Test-Path -LiteralPath (Join-Path $rootPath 'VERSION')) {
@@ -168,6 +169,26 @@ foreach ($name in @('01-it','02-manufacturing','03-finance','04-trading','05-ret
     }
 }
 
+# The distribution ships only README.md inside personal record folders; real records never belong here.
+$recordFolders = @('profile', 'experiences', 'projects', 'reflections', 'annual-review', 'assets', 'career', 'derived', 'practice')
+foreach ($dir in $recordFolders) {
+    $path = Join-Path $rootPath $dir
+    if (-not (Test-Path -LiteralPath $path)) { continue }
+    foreach ($item in @(Get-ChildItem -LiteralPath $path -File -Recurse)) {
+        if ($item.Name -ne 'README.md') { Report "$(Relative $item.FullName) : personal record folder must only contain README.md in the distribution" }
+    }
+}
+
+# Fictional records share the real record format, so each one carries a visible warning. The frozen submitted copy is exempt.
+$fictionalWarning = '> 教材の架空例です。本人の記録ではなく、活動実績にも数えません。'
+$warningCount = 0
+foreach ($file in @($files | Where-Object { (Relative $_.FullName) -like 'examples/journey/*' })) {
+    $rel = Relative $file.FullName
+    if ($rel -eq 'examples/journey/derived/application-a-submitted.md') { continue }
+    $warningCount++
+    if (-not (Read-Text $file.FullName).Contains($fictionalWarning)) { Report "$rel : fictional warning missing" }
+}
+
 # Every worksheet needs a usable prompt, separated from the resulting record.
 $worksheetCount = 0
 foreach ($file in @($files | Where-Object { (Relative $_.FullName) -like 'templates/*' -and $_.Name -ne 'README.md' })) {
@@ -185,5 +206,5 @@ if ($errors.Count) {
     Write-Output "FAIL: $($errors.Count) problem(s)"
     exit 1
 }
-Write-Output "PASS: $($files.Count) Markdown files, $links local links, $recordCount new activity records, $fixtureCount identical migration copies, $worksheetCount ChatGPT worksheets, $gakuchikaCount fictional industry essays; frozen files, application limits, facts and license notices verified."
+Write-Output "PASS: $($files.Count) Markdown files, $links local links, $recordCount new activity records, $fixtureCount identical migration copies, $worksheetCount ChatGPT worksheets, $gakuchikaCount fictional industry essays, $warningCount labeled fictional records; frozen files, application limits, facts, empty record folders and license notices verified."
 exit 0

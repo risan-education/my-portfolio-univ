@@ -2,8 +2,8 @@
 
 - 作成日: 2026-09-26
 - 更新日: 2026-09-27
-- 要件定義書の版: 0.9
-- 対応する教材版: 0.4.0
+- 要件定義書の版: 0.10
+- 対応する教材版: 0.4.1
 - 状態: 配布教材の現行要件。実装・検証結果は[受入確認](acceptance.md)で管理する。
 - リポジトリ名: `my-portfolio-univ`（引き継ぎ仕様1.0の呼称に統一）
 - 配布元: `risan-education/my-portfolio-univ`
@@ -301,7 +301,8 @@ AIに渡さない情報は接続対象の外で保管する。文書内の「AI�
 
 ## 7. 保存・共有・引き継ぎ
 
-- 配布元には空欄の用紙と架空例を置く。本人の実記録、応募書類、他者の個人情報をIssue・PRに集めない。
+- 配布元には空欄の用紙と架空例を置く。本人の実記録、応募書類、他者の個人情報をIssue・PRに集めない。本人記録用フォルダにREADME.md以外があれば配布検査で失敗させ、Issueフォーム・PRテンプレートで実記録を含まないことを確認する。
+- 架空例は本人の記録と同じ形式のため、各ファイル冒頭に架空例である注意書きを必須にする。本人用へコピーした後に削除してよい教材ファイルの一覧をガイドで示し、接続したAIが架空例を実績と混同しないようにする。教材とテンプレートを別リポジトリへ分ける案は将来の検討事項とする。
 - 写真・動画・大きな研究資料等の原本は外部ストレージで管理し、`assets/` の所在メモに所有者・権限・利用範囲・控えの有無と所在を記録する。リンクの記載と閲覧許可を区別する。
 - インターン先の機密、未公開研究、顧客情報などは、保存・AI利用・外部提出を個別に確認し、扱える範囲の記録にする。
 - 採用担当者などに見せる場合は、必要な成果物を別に選ぶ。本人用リポジトリ全体の公開を標準手順にしない。
@@ -350,8 +351,13 @@ AIに渡さない情報は接続対象の外で保管する。文書内の「AI�
 ## 8. ファイル構成
 
 ```text
-README.md / AGENTS.md / CHATGPT.md / LICENSE / VERSION / CHANGELOG.md
+README.md / AGENTS.md / CHATGPT.md / CLAUDE.md / LICENSE / VERSION / CHANGELOG.md
+CONTRIBUTING.md / SECURITY.md      提案の送り方と、個人情報を見つけたときの連絡方法
 .github/copilot-instructions.md   Copilotから共通ルールを参照する入口
+.github/ISSUE_TEMPLATE/ .github/PULL_REQUEST_TEMPLATE.md   実記録を送らない確認欄
+.github/workflows/       配布検査（docs.yml）とタグからのRelease作成（release.yml）
+.claude/skills/save-prompt/   作業記録をdocs/prompt/へ保存しmainへpushするClaude Code用スキル
+practice/                架空の保存練習。READMEのみ配布し、実績から除外
 profile/                 長期の自己紹介の現在版・本人確認日・関心・目標と根拠
 experiences/             日々の記録
 projects/                探究・研究・制作・継続活動
@@ -383,7 +389,9 @@ docs/                    初期設定・記録・就活・AI・引き継ぎ等�
   portfolio-format.md    大学生版で採用する記録の共通仕様
   migration.md           中高生版からの移行・確認手順
   record-index.md        任意の索引の使い方
-scripts/check-docs.ps1   リンク・日付等の配布品質チェック
+  reviews/               開発時の評価記録（実績・案内ではない）
+  prompt/                作業プロンプトと結果の要約（実績・案内ではない）
+scripts/check-docs.ps1   リンク・日付・記録フォルダ・架空例表示等の配布品質チェック
 ```
 
 自己分析の根拠は原記録へ、企業研究と応募状況は派生文書へリンクする。面接後の本人の経験は原記録に残す。フォルダ間で本文を二重管理しない。構成を変更した場合は本書とガイドを同時に更新する。

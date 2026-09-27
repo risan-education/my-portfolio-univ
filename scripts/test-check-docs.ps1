@@ -31,7 +31,7 @@ function Mutate-And-Check([string]$Relative, [scriptblock]$Change, [string]$Frag
 try {
     New-Item -ItemType Directory -Path $fixtureRoot | Out-Null
     foreach ($item in (Get-ChildItem -LiteralPath $sourceRoot -Force)) {
-        if ($item.Name -in @('.git', '.scratch', '.agents', '.codex')) { continue }
+        if ($item.Name -in @('.git', '.scratch', '.agents', '.codex', '.claude')) { continue }
         Copy-Item -LiteralPath $item.FullName -Destination $fixtureRoot -Recurse
     }
     Expect 'unchanged distribution, including legacy without date fields' 0 'PASS:'
@@ -103,6 +103,17 @@ try {
         Remove-Item -LiteralPath $gakuchika
         Expect 'missing industry example' 1 'gakuchika example missing'
     } finally { [IO.File]::WriteAllBytes($gakuchika, $gakuchikaBytes) }
+
+    $stray = Join-Path $fixtureRoot 'experiences/260101-stray.md'
+    try {
+        [IO.File]::WriteAllText($stray, "# 配布元への誤混入を検出する検査用ファイル`n", $encoding)
+        Expect 'stray record in distribution folder' 1 'personal record folder must only contain README.md'
+    } finally { Remove-Item -LiteralPath $stray }
+    Mutate-And-Check 'examples/journey/experiences/240415-class.md' {
+        param($path)
+        $body = [IO.File]::ReadAllText($path).Replace('> 教材の架空例です。本人の記録ではなく、活動実績にも数えません。', '')
+        [IO.File]::WriteAllText($path, $body, $encoding)
+    } 'fictional warning missing'
 
     Expect 'restored fixture' 0 'PASS:'
     Write-Output "PASS: $passed checker scenarios"

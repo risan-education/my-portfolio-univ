@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 教材の使い方を知りたい
+    url: https://github.com/risan-education/my-portfolio-univ#readme
+    about: READMEとdocs/のガイドを先に確認してください。個人の記録や応募書類はIssueに送らないでください。

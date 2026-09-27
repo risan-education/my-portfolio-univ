@@ -1,5 +1,17 @@
 # 変更履歴
 
+## 0.4.1 — 2026-09-27
+
+- リポジトリの評価記録を `docs/reviews/` に追加し、優先度の高い改善を実施。
+- 配布検査に、本人記録用フォルダにREADME.md以外があれば失敗する検査と、`examples/journey/` の架空例に冒頭の注意書きを必須にする検査を追加。回帰検査も追加。
+- 全架空記録の冒頭に「教材の架空例です」の注意書きを追加。凍結した提出控えと移行fixtureは変更なし。
+- 本人用へコピーした後に削除してよい教材ファイルの一覧をGitHubガイドとREADMEに追加。
+- CONTRIBUTING、SECURITY、Issueフォーム、PRテンプレートを追加し、実記録を送らない確認欄を設けた。
+- タグpushでCHANGELOGからGitHub Releaseを作るワークフローを追加。`v0.4.0`・`v0.4.1` のタグを付与。
+- `CLAUDE.md`（AGENTS.mdの参照）と `practice/README.md` を同梱。Claude Code案内・開始手順を同梱済みの記述へ更新。
+- 開発記録用の `docs/prompt/` と、作業記録を保存してmainへpushする `/save-prompt` スキルを追加。
+- `.gitattributes` の不要になった要件書の `-text` 指定を削除。
+
 ## 0.4.0 — 2026-09-27
 
 - 大学新卒の就活でのガクチカ作成を主目的として、README・共通指示・要件定義書を更新。

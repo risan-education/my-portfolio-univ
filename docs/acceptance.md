@@ -1,6 +1,6 @@
 # 実装・受入確認
 
-対象版: 0.4.0 ／ 確認日: 2026-09-27
+対象版: 0.4.1 ／ 確認日: 2026-09-27
 
 [要件定義書](my-portfolio-university-requirements.md)を現行仕様として直接更新します。日本語Markdownの用紙・ガイド・架空例をChatGPT・GitHub Copilotで使い、慣れている人向けにClaude Codeも案内します。過去の要件はGit履歴に残し、別の改訂要件書は廃止しました。
 
@@ -97,6 +97,22 @@ ChatGPTの実アカウントでのUI操作・プランごとの添付・GitHub�
 
 公式資料の読解と架空の教材の検査までを確認したものです。実在の学生の応募、選考通過、面接官による評価、実応募先のAI利用条件は検証していません。400字は教材の仮の指定で、業種共通の応募条件ではありません。
 
+
+## 配布元の安全策と版の管理（0.4.1）
+
+| ID | 実装・証拠 | 確認方法 |
+| --- | --- | --- |
+| DIST-01 | scripts/check-docs.ps1 の本人記録用フォルダ検査 | 一時コピーの experiences/ に架空のファイルを置き、検査が失敗することを回帰検査で確認 |
+| DIST-02 | `examples/journey/` 各ファイル冒頭の注意書き | 注意書きを除いた一時コピーで検査が失敗することを回帰検査で確認。凍結した提出控えは除外 |
+| DIST-03 | [コピー後の整理](github-basics.md#コピーした後に整理する)、[README](../README.md) | 削除してよいファイルと残すファイル、削除しない場合の依頼方法を内容確認 |
+| DIST-04 | [CONTRIBUTING](../CONTRIBUTING.md)、[SECURITY](../SECURITY.md)、Issueフォーム、PRテンプレート | 実記録を送らない確認欄と、個人情報を見つけたときの連絡方法を内容確認 |
+| DIST-05 | `.github/workflows/release.yml`、タグ `v0.4.0`・`v0.4.1` | タグpushでCHANGELOGの該当節からReleaseが作られることをActionsの結果で確認 |
+| DIST-06 | [CLAUDE.md](../CLAUDE.md)、[practice/README.md](../practice/README.md)、[Claude Code案内](claude-code.md)、[開始手順](getting-started.md) | 同梱済みの案内へ更新。必須ファイルとして検査 |
+| DIST-07 | [評価記録](reviews/260927-repository-review.md)、`docs/prompt/`、`.claude/skills/save-prompt/` | 開発記録の置き場所と、実績・案内から除外する扱いを[保守ガイド](maintenance.md)で確認 |
+
+教材とテンプレートを別リポジトリへ分ける案（評価記録のH-1）は未実施で、配布元の判断待ちです。代わりにDIST-01〜03で架空例の混入を防いでいます。
+
+ローカルのPowerShell 7.4.6で148件のMarkdown、738件の内部リンク、29種類の用紙、10件の業種別文章、9件の新規活動記録、4件の同一移行コピー、29件の架空記録の注意書きを検査しました。検査ツールの18シナリオ（誤混入ファイルの検出と注意書きの欠落を含む）が通過しました。
 
 ## 検証の範囲と限界
 

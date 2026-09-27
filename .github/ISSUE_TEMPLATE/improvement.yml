@@ -1,0 +1,35 @@
+name: 教材の改善提案
+description: 用紙・ガイド・架空例・検査の改善を、架空の再現例で提案します
+title: "[改善] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        実記録・応募書類・相談本文・個人情報は送らないでください。困った場面は架空の再現例で説明します。
+  - type: textarea
+    id: target
+    attributes:
+      label: 対象のファイル・箇所
+      description: 相対パスと見出し。複数あれば列挙します。
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: 困ったこと・改善したいこと
+    validations:
+      required: true
+  - type: textarea
+    id: example
+    attributes:
+      label: 架空の再現例（任意）
+      description: 架空の一言メモや依頼文など。実在の人物・企業の情報は使いません。
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: 確認
+      options:
+        - label: 実在の本人・第三者の記録、応募書類、相談本文、個人情報を含んでいません
+          required: true
+        - label: 例はすべて架空で、活動実績として扱われないことを了解しています
+          required: true

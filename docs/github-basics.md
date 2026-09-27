@@ -38,6 +38,20 @@ ZIPはリポジトリの一時点のファイルで、全変更履歴は含み�
 
 スマートフォン等でフォルダのアップロードが難しい場合は、パソコンのブラウザで行えます。ChatGPTから直接保存できるかは[環境確認](chatgpt-environment.md)で確かめます。
 
+## コピーした後に整理する
+
+大学生版には、学生が使う用紙・ガイドのほかに、教材を保守するためのファイルと架空例が含まれています。本人用のPrivateでは、次のものを削除して構いません。ChatGPTなどを接続したときに、架空の記録が本人の記録と混ざるのを防ぐためです。
+
+| 削除してよいもの | 理由 |
+| --- | --- |
+| `examples/` 全体 | すべて架空例。本人の記録と同じ形式のため、接続したAIが実績と混同しやすい。読みたいときは[配布元](https://github.com/risan-education/my-portfolio-univ)で開く |
+| `scripts/`、`.github/workflows/`、`.github/ISSUE_TEMPLATE/`、`.github/PULL_REQUEST_TEMPLATE.md` | 配布元の検査・受付用。本人用では動かす必要がない |
+| `docs/maintenance.md`、`docs/acceptance.md`、`docs/my-portfolio-university-requirements.md`、`docs/sources.md`、`docs/reviews/`、`docs/prompt/`、`CHANGELOG.md`、`CONTRIBUTING.md`、`SECURITY.md` | 教材の保守記録。本人の記録や相談には使わない |
+
+残すものは、README.md、CHATGPT.md、AGENTS.md、CLAUDE.md、`.github/copilot-instructions.md`、LICENSE、VERSION、`templates/`、`docs/` の残りのガイド、記録用の各フォルダ、`practice/`、`questions.md` です。ガイド内の架空例へのリンクは、削除後は配布元で読みます。LICENSEは教材の著作権表示として残します。
+
+削除せずに使う場合は、ChatGPTへの依頼で `examples/` を読む資料に含めないよう明示します。各架空例の冒頭には「教材の架空例です」という注意書きがあります。
+
 ## 4. 準備が終わったら
 
 初めての人は[ChatGPTでの練習](getting-started.md)へ、中高生版の記録がある人は[移行手順](migration.md)へ進みます。学校名や本名をリポジトリ名に入れる必要はありません。公開用の教材リポジトリへ本人の記録を送らないよう、アップロードの前に毎回所有者とPrivate表示を確認します。
