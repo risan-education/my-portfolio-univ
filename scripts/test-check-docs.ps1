@@ -87,6 +87,23 @@ try {
         Expect 'missing current requirements' 1 'missing required file: docs/my-portfolio-university-requirements.md'
     } finally { [IO.File]::WriteAllBytes($requirements, $requirementsBytes) }
 
+    Mutate-And-Check 'examples/gakuchika/01-it.md' {
+        param($path)
+        $body = [IO.File]::ReadAllText($path).Replace('## 架空の文章', "## 架空の文章" + [Environment]::NewLine + ('あ' * 401))
+        [IO.File]::WriteAllText($path, $body, $encoding)
+    } 'gakuchika answer missing or over limit 400'
+    Mutate-And-Check 'examples/gakuchika/01-it.md' {
+        param($path)
+        $body = [regex]::Replace([IO.File]::ReadAllText($path), '(?m)^- 字数: \d+字', '- 字数: 1字')
+        [IO.File]::WriteAllText($path, $body, $encoding)
+    } 'gakuchika character count mismatch'
+    $gakuchika = Join-Path $fixtureRoot 'examples/gakuchika/01-it.md'
+    $gakuchikaBytes = [IO.File]::ReadAllBytes($gakuchika)
+    try {
+        Remove-Item -LiteralPath $gakuchika
+        Expect 'missing industry example' 1 'gakuchika example missing'
+    } finally { [IO.File]::WriteAllBytes($gakuchika, $gakuchikaBytes) }
+
     Expect 'restored fixture' 0 'PASS:'
     Write-Output "PASS: $passed checker scenarios"
 } finally {

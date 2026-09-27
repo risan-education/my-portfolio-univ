@@ -15,6 +15,8 @@
 | [振り返り](reflection.md) | `reflections/YYMMDD-review.md` |
 | [年間の振り返り](annual-review.md) | `annual-review/YYMMDD-year.md` |
 | [現在の自己紹介](profile.md) | `profile/current.md` |
+| [ガクチカのテーマ選び](gakuchika-theme.md) | `derived/evidence/YYMMDD-gakuchika-theme.md` |
+| [ガクチカの構成・事実確認](gakuchika.md) | `derived/applications/応募先/YYMMDD-gakuchika-v1.md`（本文生成前は `derived/evidence/`） |
 | [経験の棚卸し](evidence-inventory.md) | `derived/evidence/YYMMDD-inventory.md` |
 | [参考自己分析レポート](self-analysis-report.md) | `derived/self-analysis/YYMMDD-report.md` |
 | [本人が確認した自己理解](self-analysis-current.md) | `career/self-analysis/current.md` |

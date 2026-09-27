@@ -71,3 +71,7 @@
 | [GitHub Desktop・コミットとpush](https://docs.github.com/en/desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project-in-github-desktop) | 差分の確認、対象ファイルの選択、コミットとPush origin |
 | [Claude Code・開始手順](https://code.claude.com/docs/en/quickstart) | 導入、アカウント・課金経路、フォルダでの起動 |
 | [Claude Code・指示ファイル](https://code.claude.com/docs/en/memory) | AGENTS.mdの適用条件、CLAUDE.mdからの参照 |
+
+## ガクチカの調査資料（0.4.0）
+
+確認日: 2026-09-27。[採用側の説明、10業種の公式資料、中高生版の参照箇所と固定版](gakuchika-sources.md)に確認範囲をまとめました。公式情報と教材の解釈、架空の応募条件と実際の提出条件を分けています。

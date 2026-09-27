@@ -1,5 +1,7 @@
 # ChatGPTと記録を就活へつなげる
 
+ガクチカ作成が主目的なら、[テーマ選び](choosing-gakuchika-theme.md) → [作り方](gakuchika.md) → [業種別10例](../examples/gakuchika/README.md) → [構成・確認用紙](../templates/gakuchika.md)へ進みます。
+
 今回使う原記録を選び、ChatGPTへ渡して以下を一つずつ進めます。各用紙に用途別の依頼文があります。
 
 1. [経験の棚卸し](../templates/evidence-inventory.md)で原記録を選び、役割・選択・行動・結果・学びを分けます。元記録・コピー・要約は1活動です。

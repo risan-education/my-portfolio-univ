@@ -4,6 +4,8 @@
 
 | やりたいこと | ChatGPTへ渡すもの・用紙 | 出力後に本人が確かめること |
 | --- | --- | --- |
+| ガクチカのテーマを決める | [テーマ選び用紙](../templates/gakuchika-theme.md) | 本人の選択、過去の経験と今後の計画 |
+| ガクチカを組み立てる | [構成・確認用紙](../templates/gakuchika.md) | AI条件、各文の根拠、役割・結果・字数 |
 | 一言を残す | [用紙と依頼文](../templates/quick-note.md) | 元メモと日付 |
 | 経験を詳しく残す | [用紙と依頼文](../templates/experience.md) | 本人の役割と実施結果 |
 | 研究・制作を深める | [用紙と依頼文](../templates/project.md) | 根拠・変更理由・限界 |

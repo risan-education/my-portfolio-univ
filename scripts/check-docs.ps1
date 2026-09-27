@@ -90,7 +90,7 @@ foreach ($file in $files) {
     }
 }
 
-foreach ($required in @('README.md','AGENTS.md','CHATGPT.md','LICENSE','VERSION','CHANGELOG.md','docs/acceptance.md','templates/README.md','examples/README.md','docs/getting-started.md','docs/saving.md','docs/chatgpt-environment.md','docs/my-portfolio-university-requirements.md','docs/copilot.md','docs/claude-code.md','.github/copilot-instructions.md','examples/copilot-workflow.md','docs/chatgpt-prompts.md','examples/chatgpt-workflow.md')) {
+foreach ($required in @('README.md','AGENTS.md','CHATGPT.md','LICENSE','VERSION','CHANGELOG.md','docs/acceptance.md','templates/README.md','examples/README.md','docs/getting-started.md','docs/saving.md','docs/chatgpt-environment.md','docs/my-portfolio-university-requirements.md','docs/copilot.md','docs/claude-code.md','.github/copilot-instructions.md','examples/copilot-workflow.md','docs/chatgpt-prompts.md','examples/chatgpt-workflow.md','docs/gakuchika.md','docs/choosing-gakuchika-theme.md','docs/gakuchika-sources.md','templates/gakuchika.md','templates/gakuchika-theme.md','examples/gakuchika/README.md')) {
     if (-not (Test-Path -LiteralPath (Join-Path $rootPath $required))) { Report "missing required file: $required" }
 }
 if (Test-Path -LiteralPath (Join-Path $rootPath 'VERSION')) {
@@ -149,6 +149,25 @@ foreach ($name in @('application-a-v1.md','application-a-submitted.md','applicat
     }
 }
 
+# Only the ten distributed fictional essays are checked, never personal drafts.
+$gakuchikaCount = 0
+foreach ($name in @('01-it','02-manufacturing','03-finance','04-trading','05-retail','06-consulting','07-advertising','08-infrastructure','09-education','10-welfare')) {
+    $relative = "examples/gakuchika/$name.md"
+    $path = Join-Path $rootPath $relative
+    if (-not (Test-Path -LiteralPath $path)) { Report "gakuchika example missing: $relative"; continue }
+    $gakuchikaCount++
+    $body = Read-Text $path
+    $match = [regex]::Match($body, '(?ms)^## 架空の文章\r?\n(?<answer>.+?)(?=^## |\z)')
+    $answer = $match.Groups['answer'].Value -replace '\s', ''
+    if (-not $match.Success -or $answer.Length -eq 0 -or $answer.Length -gt 400) {
+        Report "$relative : gakuchika answer missing or over limit 400"
+    }
+    $declared = [regex]::Match($body, '(?m)^- 字数: (?<count>\d+)字／400字以内。')
+    if (-not $declared.Success -or [int]$declared.Groups['count'].Value -ne $answer.Length) {
+        Report "$relative : gakuchika character count mismatch"
+    }
+}
+
 # Every worksheet needs a usable prompt, separated from the resulting record.
 $worksheetCount = 0
 foreach ($file in @($files | Where-Object { (Relative $_.FullName) -like 'templates/*' -and $_.Name -ne 'README.md' })) {
@@ -166,5 +185,5 @@ if ($errors.Count) {
     Write-Output "FAIL: $($errors.Count) problem(s)"
     exit 1
 }
-Write-Output "PASS: $($files.Count) Markdown files, $links local links, $recordCount new activity records, $fixtureCount identical migration copies, $worksheetCount ChatGPT worksheets; frozen files, application limits, facts and license notices verified."
+Write-Output "PASS: $($files.Count) Markdown files, $links local links, $recordCount new activity records, $fixtureCount identical migration copies, $worksheetCount ChatGPT worksheets, $gakuchikaCount fictional industry essays; frozen files, application limits, facts and license notices verified."
 exit 0
