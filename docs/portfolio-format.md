@@ -2,11 +2,13 @@
 
 仕様の版: 1.0 ／ 採用日: 2026-09-27
 
+利用手順は[ChatGPT前提](chatgpt-requirements.md)です。ChatGPTへの依頼文と記録本文を分け、[保存と再読込](saving.md)まで行います。
+
 中高生版の[共通仕様1.0](https://github.com/risan-education/my-portfolio-teens/blob/main/docs/portfolio-format.md)を確認して、本教材向けに説明を整理しました。原文の複製ではありません。照合範囲は[参照元](sources.md)。
 
 | 項目 | 大学生版の扱い |
 | --- | --- |
-| 本文 | UTF-8 Markdown。アプリ・AI・DBに依存しない |
+| 本文 | UTF-8 Markdown。ChatGPTで整理し、独自形式に変換せず持ち出せる |
 | 新規活動記録の名前 | YYMMDD-theme.md。日付不明はdate-unknown-theme.md。同名は-02、-03等 |
 | 本文の日付 | 活動日・記録日・作成日・更新日を別欄。YYYY-MM-DD、不明は未確認 |
 | 固定の入口 | README.md、questions.md、profile/current.md等は役割の名前 |

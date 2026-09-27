@@ -65,6 +65,17 @@ try {
         param($path)
         [IO.File]::WriteAllBytes($path, [byte[]]@(0xFF, 0xFE, 0xFF))
     } 'invalid UTF-8'
+    Mutate-And-Check 'templates/quick-note.md' {
+        param($path)
+        $body = [IO.File]::ReadAllText($path).Replace('## 出力する記録', '## Removed boundary')
+        [IO.File]::WriteAllText($path, $body, $encoding)
+    } 'ChatGPT worksheet prompt/body boundary missing'
+    $instruction = Join-Path $fixtureRoot 'CHATGPT.md'
+    $instructionBytes = [IO.File]::ReadAllBytes($instruction)
+    try {
+        Remove-Item -LiteralPath $instruction
+        Expect 'missing ChatGPT instructions' 1 'missing required file: CHATGPT.md'
+    } finally { [IO.File]::WriteAllBytes($instruction, $instructionBytes) }
     Expect 'restored fixture' 0 'PASS:'
     Write-Output "PASS: $passed checker scenarios"
 } finally {

@@ -88,7 +88,7 @@ foreach ($file in $files) {
     }
 }
 
-foreach ($required in @('README.md','AGENTS.md','LICENSE','VERSION','CHANGELOG.md','docs/acceptance.md','templates/README.md','examples/README.md')) {
+foreach ($required in @('README.md','AGENTS.md','CHATGPT.md','LICENSE','VERSION','CHANGELOG.md','docs/acceptance.md','templates/README.md','examples/README.md','docs/getting-started.md','docs/saving.md','docs/chatgpt-environment.md','docs/chatgpt-requirements.md','docs/chatgpt-prompts.md','examples/chatgpt-workflow.md')) {
     if (-not (Test-Path -LiteralPath (Join-Path $rootPath $required))) { Report "missing required file: $required" }
 }
 if (Test-Path -LiteralPath (Join-Path $rootPath 'VERSION')) {
@@ -148,10 +148,22 @@ foreach ($name in @('application-a-v1.md','application-a-submitted.md','applicat
     }
 }
 
+# Every worksheet needs a usable prompt, separated from the resulting record.
+$worksheetCount = 0
+foreach ($file in @($files | Where-Object { (Relative $_.FullName) -like 'templates/*' -and $_.Name -ne 'README.md' })) {
+    $worksheetCount++
+    $body = Read-Text $file.FullName
+    $prompt = [regex]::Match($body, '(?ms)^## ChatGPTへの依頼（記録本文には含めない）\r?\n(?<prompt>.+?)^## 出力する記録\r?$')
+    if (-not $prompt.Success -or $prompt.Groups['prompt'].Value -notmatch '(?m)^> .+') {
+        Report "$(Relative $file.FullName) : ChatGPT worksheet prompt/body boundary missing"
+    }
+}
+if ($worksheetCount -lt 27) { Report 'ChatGPT worksheet set incomplete' }
+
 if ($errors.Count) {
     foreach ($problem in $errors) { Write-Output "ERROR: $problem" }
     Write-Output "FAIL: $($errors.Count) problem(s)"
     exit 1
 }
-Write-Output "PASS: $($files.Count) Markdown files, $links local links, $recordCount new activity records, $fixtureCount identical migration copies; frozen files, application limits, facts and license notices verified."
+Write-Output "PASS: $($files.Count) Markdown files, $links local links, $recordCount new activity records, $fixtureCount identical migration copies, $worksheetCount ChatGPT worksheets; frozen files, application limits, facts and license notices verified."
 exit 0

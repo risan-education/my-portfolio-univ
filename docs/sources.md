@@ -20,3 +20,17 @@ GitHubの参照先はmainで取得し、返された最終更新時刻は3資料
 
 要件書にある小学生版・参考記事等の調査記述は提供された原文の記述です。今回それら全体を再検証したわけではありません。
 別添の「3版共通のライセンス適用メモ」は未提供で、中高生版の同名URLでも取得できませんでした。[このリポジトリの適用メモ](my-portfolio-license-adoption.md)を別途作成し、他の2リポジトリは変更していません。
+
+## ChatGPT利用手順の参照元（0.2.0）
+
+2026-09-27に公式本文を確認しました。利用手順の設計は本教材独自のものです。実際のプラン・権限・機能は各利用環境で確認します。
+
+| 公式資料 | 確認した範囲 |
+| --- | --- |
+| [Use ChatGPT](https://learn.chatgpt.com/docs/use-chatgpt) | 目的・資料を渡して対話し、結果を確認する使い方 |
+| [Projects and chats](https://learn.chatgpt.com/docs/projects) | プロジェクトの指示・資料と、ローカルフォルダへのアクセスの区別 |
+| [Work with files](https://learn.chatgpt.com/docs/artifacts-viewer) | ファイルを使った作成・確認。教材では本人用保存先への反映を別に確認する |
+| [Plugins](https://learn.chatgpt.com/docs/plugins) | 外部サービスの情報や操作を使う連携の仕組み。個別GitHub書込権限は未検証 |
+| [AGENTS.md](https://learn.chatgpt.com/docs/agent-configuration/agents-md) | Codexでの指示探索。通常のChatGPTへは共通指示を明示的に渡す設計 |
+
+実アカウントでのプロジェクト作成・添付・GitHub書込の操作検証はしていません。[環境確認](chatgpt-environment.md)と[受入確認](acceptance.md)を参照してください。
