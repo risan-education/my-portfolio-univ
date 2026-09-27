@@ -1,9 +1,23 @@
 name: Release
 
+# 2つの起動方法があります。
+# 1. vX.Y.Z のタグを push する。
+# 2. Actions画面またはAPIから手動実行する（version と target を指定。省略時は VERSION ファイルと現在のmain）。
+#    タグを直接 push できない環境向けです。ワークフローがタグを作成してから Release を作ります。
 on:
   push:
     tags:
       - 'v*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: '版（例: 0.4.1）。省略時は VERSION ファイルの値'
+        required: false
+        type: string
+      target:
+        description: 'タグを付けるコミットSHA。省略時はワークフローを実行したブランチの先頭'
+        required: false
+        type: string
 
 permissions:
   contents: write
@@ -13,10 +27,44 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Resolve tag and target
+        id: meta
+        run: |
+          if [ "${GITHUB_EVENT_NAME}" = "push" ]; then
+            TAG="${GITHUB_REF_NAME}"
+            TARGET="${GITHUB_SHA}"
+          else
+            VERSION="${{ inputs.version }}"
+            [ -n "$VERSION" ] || VERSION="$(tr -d '[:space:]' < VERSION)"
+            TAG="v${VERSION}"
+            TARGET="${{ inputs.target }}"
+            [ -n "$TARGET" ] || TARGET="${GITHUB_SHA}"
+          fi
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          echo "target=$TARGET" >> "$GITHUB_OUTPUT"
+          echo "Tag $TAG at $TARGET"
+      - name: Create tag when missing
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          TAG="${{ steps.meta.outputs.tag }}"
+          TARGET="${{ steps.meta.outputs.target }}"
+          git rev-parse --verify --quiet "$TARGET^{commit}" >/dev/null || { echo "target commit $TARGET not found"; exit 1; }
+          if git ls-remote --exit-code --tags origin "refs/tags/$TAG" >/dev/null; then
+            echo "tag $TAG already exists on origin"
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git tag -a "$TAG" "$TARGET" -m "Myポートフォリオ 大学生版 ${TAG#v}"
+            git push origin "refs/tags/$TAG"
+          fi
       - name: Extract release notes from CHANGELOG
         run: |
-          VERSION="${GITHUB_REF_NAME#v}"
-          awk -v v="$VERSION" '/^## /{p = (index($0, "## " v " ") == 1)} p' CHANGELOG.md > notes.md
+          TAG="${{ steps.meta.outputs.tag }}"
+          VERSION="${TAG#v}"
+          git show "${{ steps.meta.outputs.target }}:CHANGELOG.md" > changelog-at-tag.md 2>/dev/null || cp CHANGELOG.md changelog-at-tag.md
+          awk -v v="$VERSION" '/^## /{p = (index($0, "## " v " ") == 1)} p' changelog-at-tag.md > notes.md
           if [ ! -s notes.md ]; then
             echo "CHANGELOG.md に ${VERSION} の項目がありません。" > notes.md
           fi
@@ -24,4 +72,10 @@ jobs:
       - name: Create GitHub Release
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release create "$GITHUB_REF_NAME" --title "$GITHUB_REF_NAME" --notes-file notes.md --verify-tag
+        run: |
+          TAG="${{ steps.meta.outputs.tag }}"
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            echo "release $TAG already exists"
+          else
+            gh release create "$TAG" --title "$TAG" --notes-file notes.md --verify-tag
+          fi

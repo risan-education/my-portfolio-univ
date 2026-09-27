@@ -106,7 +106,7 @@ ChatGPTの実アカウントでのUI操作・プランごとの添付・GitHub�
 | DIST-02 | `examples/journey/` 各ファイル冒頭の注意書き | 注意書きを除いた一時コピーで検査が失敗することを回帰検査で確認。凍結した提出控えは除外 |
 | DIST-03 | [コピー後の整理](github-basics.md#コピーした後に整理する)、[README](../README.md) | 削除してよいファイルと残すファイル、削除しない場合の依頼方法を内容確認 |
 | DIST-04 | [CONTRIBUTING](../CONTRIBUTING.md)、[SECURITY](../SECURITY.md)、Issueフォーム、PRテンプレート | 実記録を送らない確認欄と、個人情報を見つけたときの連絡方法を内容確認 |
-| DIST-05 | `.github/workflows/release.yml`、タグ `v0.4.0`・`v0.4.1` | タグpushでCHANGELOGの該当節からReleaseが作られることをActionsの結果で確認 |
+| DIST-05 | `.github/workflows/release.yml`、タグ `v0.4.0`・`v0.4.1` | タグpushまたは手動実行でタグとReleaseが作られることをActionsの結果で確認。0.4.1ではセッションの認証がタグpushを許可しなかったため手動実行で作成 |
 | DIST-06 | [CLAUDE.md](../CLAUDE.md)、[practice/README.md](../practice/README.md)、[Claude Code案内](claude-code.md)、[開始手順](getting-started.md) | 同梱済みの案内へ更新。必須ファイルとして検査 |
 | DIST-07 | [評価記録](reviews/260927-repository-review.md)、`docs/prompt/`、`.claude/skills/save-prompt/` | 開発記録の置き場所と、実績・案内から除外する扱いを[保守ガイド](maintenance.md)で確認 |
 

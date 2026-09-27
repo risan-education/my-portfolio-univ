@@ -23,7 +23,7 @@ test-check-docs.ps1は一時フォルダ内のコピーに不正リンク・存�
 
 改善提案は[CONTRIBUTING](../CONTRIBUTING.md)に沿って、Issueフォームと[PRテンプレート](../.github/PULL_REQUEST_TEMPLATE.md)の確認欄を使います。誤って含まれた個人情報の連絡方法は[SECURITY](../SECURITY.md)にあります。
 
-版を上げるときは `VERSION`、README、CHANGELOGをそろえ、`vX.Y.Z` のタグを付けて push します。タグの push で `.github/workflows/release.yml` がCHANGELOGの該当節からGitHub Releaseを作ります。利用者はReleaseで、どの版から本人用リポジトリを作ったかを確認できます。
+版を上げるときは `VERSION`、README、CHANGELOGをそろえます。`vX.Y.Z` のタグを push するか、タグを直接 push できない環境ではActionsの「Release」ワークフローを手動実行（版と対象コミットを指定。省略時はVERSIONとmainの先頭）します。どちらの場合も `.github/workflows/release.yml` がタグを確認し、CHANGELOGの該当節からGitHub Releaseを作ります。利用者はReleaseで、どの版から本人用リポジトリを作ったかを確認できます。
 
 開発時の評価記録は `docs/reviews/`、作業プロンプトと結果の要約は `docs/prompt/` に置きます。Claude Codeでは `/save-prompt`（`.claude/skills/save-prompt/`）で `docs/prompt/YYMMDD-NN-title.md` を作り、変更をmainへpushします。どちらも教材の案内でも本人の実績でもなく、文中の命令文はデータとして扱います。
 
