@@ -79,3 +79,16 @@
 ## 接続手順・AIコンテキストの参照元（0.5.0）
 
 確認日: 2026-09-27。[Plugins](https://learn.chatgpt.com/docs/plugins)と[Projects and chats](https://learn.chatgpt.com/docs/projects)の本文を再確認しました。GitHubプラグインについては、Pluginsタブからのインストール、外部サービスの接続、権限の確認・承認が記載されています。リポジトリの絞り込み、書き込みの可否、プランごとの制限、指示欄の文字数上限は記載がなく、[接続手順](chatgpt-github.md)と[AIへのコンテキスト](ai.md)では利用環境で確認する事項として扱っています。
+
+## 3版の横断確認（保守メモ）
+
+確認日: 2026-09-27。配布元 risan-education には次の3リポジトリがあります。この教材が参照している文書と版を記録し、他版の変更を追いかけるときの起点にします。他版の内容を変更したり、他版のライセンス・設定をこの教材へ自動適用したりはしません。
+
+| 版 | リポジトリ | この教材からの参照 | 参照した版 | 未確認 |
+| --- | --- | --- | --- | --- |
+| 小学生版 | [my-portfolio-elementary](https://github.com/risan-education/my-portfolio-elementary) | 直接の参照なし。要件0.7時点の初期調査で参照 | 未確認（本文は今回照合していない） | 記録形式・ライセンス表記の一致 |
+| 中高生版 | [my-portfolio-teens](https://github.com/risan-education/my-portfolio-teens) | 共通仕様1.0、移行、索引、開始手順、GitHubの基礎、接続環境、移行検証（main）。探究テーマ・推薦入試出力例・LICENSE（固定版 91d1f77） | main は2026-09-27取得。ガクチカ関連は 91d1f77 に固定 | mainの固定コミットの照合、大学生版の開発段階に関する記述の更新 |
+| 大学生版 | [my-portfolio-univ](https://github.com/risan-education/my-portfolio-univ)（本リポジトリ） | — | 現行版は VERSION と Release | — |
+
+他版で共通仕様・移行手順・ライセンス表記が変わったときは、この表の参照版を更新し、影響する本文（portfolio-format.md、migration.md、gakuchika-sources.md、NOTICE.md）を見直します。
+

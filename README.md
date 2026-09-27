@@ -4,7 +4,7 @@
 
 授業、アルバイト、研究、趣味、生活の工夫を一言で伝えるところから始めます。AIが整理を手伝い、本人が確かめた記録を自分用の保存先へ残します。主目的は、本人の経験に基づくガクチカの作成です。自己分析・仕事選び・ES・面接にもつなげます。同じ記録は、卒業後もAIに自分を説明するための「外部記憶」になり、次のChatGPT相談に渡す背景情報を作れます。
 
-版: **0.5.0** ／ [ChatGPTの登録・契約から始める](docs/getting-started.md) ／ [ChatGPTへの共通指示](CHATGPT.md)（[短縮版](CHATGPT-short.md)） ／ [依頼文を選ぶ](docs/chatgpt-prompts.md)
+版: **0.5.1** ／ [ChatGPTの登録・契約から始める](docs/getting-started.md) ／ [ChatGPTへの共通指示](CHATGPT.md)（[短縮版](CHATGPT-short.md)） ／ [依頼文を選ぶ](docs/chatgpt-prompts.md)
 
 ## 5分で始める
 
@@ -72,4 +72,4 @@ Copyright © 2026 adash333
 
 教材の配布元: risan-education
 
-オリジナル部分は **[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.ja)**。本人の文章・写真・作品には自動適用しません。第三者資料は元の条件に従います。[LICENSE](LICENSE)
+オリジナル部分は **[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.ja)**。本人の文章・写真・作品には自動適用しません。第三者資料は元の条件に従います。[正式条項](LICENSE) ／ [著作権表示と適用範囲](NOTICE.md)

@@ -48,7 +48,7 @@ ZIPはリポジトリの一時点のファイルで、全変更履歴は含み�
 | `scripts/`、`.github/workflows/`、`.github/ISSUE_TEMPLATE/`、`.github/PULL_REQUEST_TEMPLATE.md` | 配布元の検査・受付用。本人用では動かす必要がない |
 | `docs/maintenance.md`、`docs/acceptance.md`、`docs/my-portfolio-university-requirements.md`、`docs/sources.md`、`docs/reviews/`、`docs/prompt/`、`CHANGELOG.md`、`CONTRIBUTING.md`、`SECURITY.md` | 教材の保守記録。本人の記録や相談には使わない |
 
-残すものは、README.md、CHATGPT.md、AGENTS.md、CLAUDE.md、`.github/copilot-instructions.md`、LICENSE、VERSION、`templates/`、`docs/` の残りのガイド、記録用の各フォルダ、`practice/`、`questions.md` です。ガイド内の架空例へのリンクは、削除後は配布元で読みます。LICENSEは教材の著作権表示として残します。
+残すものは、README.md、CHATGPT.md、AGENTS.md、CLAUDE.md、`.github/copilot-instructions.md`、LICENSE、NOTICE.md、VERSION、`templates/`、`docs/` の残りのガイド、記録用の各フォルダ、`practice/`、`questions.md` です。ガイド内の架空例へのリンクは、削除後は配布元で読みます。LICENSEとNOTICE.mdは教材の著作権表示として残します。
 
 削除せずに使う場合は、ChatGPTへの依頼で `examples/` を読む資料に含めないよう明示します。各架空例の冒頭には「教材の架空例です」という注意書きがあります。
 

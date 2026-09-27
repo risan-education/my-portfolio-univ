@@ -1,6 +1,7 @@
 #requires -Version 7.0
 <#
 Distribution checks only. Never rewrites records or fetches external content.
+scripts/check_docs.py is the Python equivalent; keep both in step.
 Fails when personal record folders hold anything besides README.md, so real records cannot slip into the distribution.
 #>
 [CmdletBinding()]
@@ -91,7 +92,7 @@ foreach ($file in $files) {
     }
 }
 
-foreach ($required in @('README.md','AGENTS.md','CHATGPT.md','LICENSE','VERSION','CHANGELOG.md','docs/acceptance.md','templates/README.md','examples/README.md','docs/getting-started.md','docs/saving.md','docs/chatgpt-environment.md','docs/my-portfolio-university-requirements.md','docs/copilot.md','docs/claude-code.md','.github/copilot-instructions.md','examples/copilot-workflow.md','docs/chatgpt-prompts.md','examples/chatgpt-workflow.md','docs/gakuchika.md','docs/choosing-gakuchika-theme.md','docs/gakuchika-sources.md','templates/gakuchika.md','templates/gakuchika-theme.md','examples/gakuchika/README.md','CLAUDE.md','CONTRIBUTING.md','SECURITY.md','practice/README.md','.github/PULL_REQUEST_TEMPLATE.md','.github/ISSUE_TEMPLATE/improvement.yml','.github/workflows/release.yml','CHATGPT-short.md','docs/chatgpt-github.md','templates/ai-context-current.md','templates/work-experience.md','docs/after-university.md','docs/ai.md')) {
+foreach ($required in @('README.md','AGENTS.md','CHATGPT.md','LICENSE','VERSION','CHANGELOG.md','docs/acceptance.md','templates/README.md','examples/README.md','docs/getting-started.md','docs/saving.md','docs/chatgpt-environment.md','docs/my-portfolio-university-requirements.md','docs/copilot.md','docs/claude-code.md','.github/copilot-instructions.md','examples/copilot-workflow.md','docs/chatgpt-prompts.md','examples/chatgpt-workflow.md','docs/gakuchika.md','docs/choosing-gakuchika-theme.md','docs/gakuchika-sources.md','templates/gakuchika.md','templates/gakuchika-theme.md','examples/gakuchika/README.md','CLAUDE.md','CONTRIBUTING.md','SECURITY.md','practice/README.md','.github/PULL_REQUEST_TEMPLATE.md','.github/ISSUE_TEMPLATE/improvement.yml','.github/workflows/release.yml','CHATGPT-short.md','docs/chatgpt-github.md','templates/ai-context-current.md','templates/work-experience.md','docs/after-university.md','docs/ai.md','NOTICE.md','scripts/check_docs.py')) {
     if (-not (Test-Path -LiteralPath (Join-Path $rootPath $required))) { Report "missing required file: $required" }
 }
 if (Test-Path -LiteralPath (Join-Path $rootPath 'VERSION')) {
@@ -102,13 +103,15 @@ if (Test-Path -LiteralPath (Join-Path $rootPath 'VERSION')) {
         if ((Test-Path -LiteralPath $path) -and -not (Read-Text $path).Contains($version)) { Report "$name : VERSION missing" }
     }
 }
-foreach ($name in @('README.md','LICENSE','docs/maintenance.md')) {
+foreach ($name in @('README.md','NOTICE.md','docs/maintenance.md')) {
     $path = Join-Path $rootPath $name
     if (Test-Path -LiteralPath $path) {
         $body = Read-Text $path
         if ($body -notmatch 'CC BY 4\.0' -or $body -notmatch 'Copyright © 2026 adash333') { Report "$name : license notice missing" }
     }
 }
+$licensePath = Join-Path $rootPath 'LICENSE'
+if ((Test-Path -LiteralPath $licensePath) -and -not ([IO.File]::ReadAllText($licensePath)).Contains('Attribution 4.0 International')) { Report 'LICENSE : official CC BY 4.0 legal code missing' }
 
 $sourceDir = Join-Path $rootPath 'examples/migration/source'
 $copyDir = Join-Path $rootPath 'examples/migration/target/legacy/teens-01'
@@ -126,9 +129,10 @@ if ((Test-Path -LiteralPath $sourceDir) -and (Test-Path -LiteralPath $copyDir)) 
     }
 } else { Report 'migration fixture directory missing' }
 
-# Freeze the submitted example; requirements are a living document.
+# Freeze the submitted example and the official license text; requirements are a living document.
 $frozen = @{
     'examples/journey/derived/application-a-submitted.md' = '8B90990165A28A4FAE45DA034D8A8B625A52262DB24C4EAEFD3B872BC0267CEE'
+    'LICENSE' = '9BA9550AD48438D0836DDAB3DA480B3B69FFA0AAC7B7878B5A0039E7AB429411'
 }
 foreach ($entry in $frozen.GetEnumerator()) {
     $path = Join-Path $rootPath $entry.Key

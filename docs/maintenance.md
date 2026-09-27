@@ -2,9 +2,9 @@
 
 このリポジトリは用紙と架空例の配布元です。教材の改善は架空の再現例で相談してください。Issue・PRへ実記録、応募書類、相談本文を送らないでください。
 
-教材のオリジナル部分はCC BY 4.0、Copyright © 2026 adash333、配布元risan-educationです。再配布時は表示・リンク・変更表示を保持し、第三者資料と利用者の実記録へ自動適用しません。[LICENSE](../LICENSE)
+教材のオリジナル部分はCC BY 4.0、Copyright © 2026 adash333、配布元risan-educationです。再配布時は表示・リンク・変更表示を保持し、第三者資料と利用者の実記録へ自動適用しません。[正式条項](../LICENSE) ／ [著作権表示と適用範囲](../NOTICE.md)
 
-PowerShell 7で次を実行します。
+PowerShell 7で次を実行します。PowerShellがない環境では同等のPython版 `python3 scripts/check_docs.py` を使えます。両方をGitHub Actionsで実行し、検査内容を変えるときは両方を更新します。回帰検査（test-check-docs.ps1）はPowerShell版だけです。
 
 ```powershell
 pwsh -File scripts/check-docs.ps1
@@ -22,6 +22,8 @@ test-check-docs.ps1は一時フォルダ内のコピーに不正リンク・存�
 ## 提案の受付と版の管理
 
 改善提案は[CONTRIBUTING](../CONTRIBUTING.md)に沿って、Issueフォームと[PRテンプレート](../.github/PULL_REQUEST_TEMPLATE.md)の確認欄を使います。誤って含まれた個人情報の連絡方法は[SECURITY](../SECURITY.md)にあります。
+
+LICENSEはCC BY 4.0の正式条項の原文で、固定ハッシュで検査します。著作権表示や適用範囲の変更は[NOTICE.md](../NOTICE.md)と[適用メモ](my-portfolio-license-adoption.md)へ行います。
 
 版を上げるときは `VERSION`、README、CHANGELOGをそろえます。`vX.Y.Z` のタグを push するか、タグを直接 push できない環境ではActionsの「Release」ワークフローを手動実行（版と対象コミットを指定。省略時はVERSIONとmainの先頭）します。どちらの場合も `.github/workflows/release.yml` がタグを確認し、CHANGELOGの該当節からGitHub Releaseを作ります。利用者はReleaseで、どの版から本人用リポジトリを作ったかを確認できます。
 

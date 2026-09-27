@@ -1,6 +1,6 @@
 # 実装・受入確認
 
-対象版: 0.5.0 ／ 確認日: 2026-09-27
+対象版: 0.5.1 ／ 確認日: 2026-09-27
 
 [要件定義書](my-portfolio-university-requirements.md)を現行仕様として直接更新します。日本語Markdownの用紙・ガイド・架空例をChatGPT・GitHub Copilotで使い、慣れている人向けにClaude Codeも案内します。過去の要件はGit履歴に残し、別の改訂要件書は廃止しました。
 
@@ -110,7 +110,7 @@ ChatGPTの実アカウントでのUI操作・プランごとの添付・GitHub�
 | DIST-06 | [CLAUDE.md](../CLAUDE.md)、[practice/README.md](../practice/README.md)、[Claude Code案内](claude-code.md)、[開始手順](getting-started.md) | 同梱済みの案内へ更新。必須ファイルとして検査 |
 | DIST-07 | [評価記録](reviews/260927-repository-review.md)、`docs/prompt/`、`.claude/skills/save-prompt/` | 開発記録の置き場所と、実績・案内から除外する扱いを[保守ガイド](maintenance.md)で確認 |
 
-教材とテンプレートを別リポジトリへ分ける案（評価記録のH-1）は未実施で、配布元の判断待ちです。代わりにDIST-01〜03で架空例の混入を防いでいます。
+教材とテンプレートを別リポジトリへ分ける案（評価記録のH-1）は、2026-09-27に配布元の判断で採用しないことになりました。DIST-01〜03で架空例の混入を防ぎます。
 
 ローカルのPowerShell 7.4.6で148件のMarkdown、738件の内部リンク、29種類の用紙、10件の業種別文章、9件の新規活動記録、4件の同一移行コピー、29件の架空記録の注意書きを検査しました。検査ツールの18シナリオ（誤混入ファイルの検出と注意書きの欠落を含む）が通過しました。
 
@@ -129,6 +129,16 @@ ChatGPTの実アカウントでのUI操作・プランごとの添付・GitHub�
 | CTX-04 | [README](../README.md)冒頭 | 卒業後の外部記憶としての位置づけを1文で明示 |
 
 ローカルのPowerShell 7.4.6で配布検査と回帰検査（18シナリオ）を実行しました。新しい用紙2種類は依頼文と記録本文の境界検査、新しい架空例2件は注意書き検査の対象です。
+
+## 保守性の改善（0.5.1）
+
+| ID | 実装・証拠 | 確認方法 |
+| --- | --- | --- |
+| LOW-01 | [要件定義書](my-portfolio-university-requirements.md)の目次 | 全見出しへのアンカーが検査のスラッグ規則と一致し、リンク検査を通過 |
+| LOW-02 | `scripts/check_docs.py`、`.github/workflows/docs.yml` | PowerShell版と同じPASS行を出力することをローカルで比較。CIで両方を実行 |
+| LOW-03 | [LICENSE](../LICENSE)、[NOTICE.md](../NOTICE.md)、[適用メモ](my-portfolio-license-adoption.md) | LICENSEが公式のCC BY 4.0法的条項（英語原文）と一致することを固定ハッシュで検査。表示と適用範囲はNOTICE.mdで確認 |
+| LOW-04 | [参照資料](sources.md)の3版横断メモ | 小学生版・中高生版・大学生版の参照関係と確認日、未確認事項を記載 |
+| LOW-05 | [要件定義書](my-portfolio-university-requirements.md)§7、[評価記録](reviews/260927-repository-review.md) | 別リポジトリ化を採用しない決定と理由を記録 |
 
 ## 検証の範囲と限界
 
