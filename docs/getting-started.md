@@ -4,6 +4,8 @@
 
 中高生版を使っていた人は、既存のChatGPT・GitHubアカウントを使えます。新規契約をする前に現在の契約を確認し、[中高生版からのデータ移行](migration.md)へ進んでください。
 
+Copilotを使いたい人は[学生特典とVS Codeの開始手順](copilot.md)へ進めます。ChatGPTの契約をせずに、その経路で記録できます。慣れている人向けに[Claude Codeの案内](claude-code.md)もあります。
+
 ## 1. ChatGPTに登録する・ログインする
 
 1. [ChatGPT](https://chatgpt.com/)を開きます。既に使っている人は、いつもの方法でログインします。

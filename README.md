@@ -1,20 +1,24 @@
 # Myポートフォリオ 大学生版
 
-**ChatGPTとの対話で大学生活を記録し、自己分析・仕事選び・ES・面接につなげる教材です。**
+**ChatGPTやGitHub Copilotとの対話で大学生活を記録し、自己分析・仕事選び・ES・面接につなげる教材です。**
 
-授業、アルバイト、研究、趣味、生活の工夫を一言で伝えるところから始めます。ChatGPTが整理を手伝い、本人が確かめた記録を自分用の保存先へ残します。第一目的は就活対策。同じ記録から、次のChatGPT相談で使う背景情報も作れます。
+授業、アルバイト、研究、趣味、生活の工夫を一言で伝えるところから始めます。AIが整理を手伝い、本人が確かめた記録を自分用の保存先へ残します。第一目的は就活対策。同じ記録から、次のChatGPT相談で使う背景情報も作れます。
 
-版: **0.2.1** ／ [ChatGPTの登録・契約から始める](docs/getting-started.md) ／ [ChatGPTへの共通指示](CHATGPT.md) ／ [依頼文を選ぶ](docs/chatgpt-prompts.md)
+版: **0.3.0** ／ [ChatGPTの登録・契約から始める](docs/getting-started.md) ／ [ChatGPTへの共通指示](CHATGPT.md) ／ [依頼文を選ぶ](docs/chatgpt-prompts.md)
 
 ## 初めての人・中高生版から続ける人
 
 | 今の状況 | ここから進めます |
 | --- | --- |
 | ChatGPTを初めて使う | [アカウント登録・有料契約の選び方・初期設定](docs/getting-started.md) |
+| GitHub Copilotを使いたい | [学生向け無料利用・VS Codeの初期設定・記録方法](docs/copilot.md) |
+| 慣れているClaude Codeを使いたい | [Claude Codeで使う場合](docs/claude-code.md) |
 | GitHubの保存先を作りたい | [GitHub登録・大学生版を本人用Privateへコピー](docs/github-basics.md) |
 | 中高生版に自分の記録がある | [データを移して大学生版で続ける手順](docs/migration.md) |
 
 中高生版から続ける人は、既存のChatGPT・GitHubアカウントを使えます。過去の記録は本人用の保存先から、新しい本人用Privateの `legacy/teens-01/` 等へ選んでコピーします。有料プランの再契約や、公開配布元への個人データのアップロードは不要です。
+
+GitHub Educationで認証された学生はCopilot Studentを無料で利用できます。認証・有効化と利用上限は[Copilotの開始手順](docs/copilot.md)で確認してください。慣れている人はClaude Codeでも利用できます。
 
 ## 最初の1件をChatGPTと作る
 
@@ -52,9 +56,9 @@
 
 ## この教材の前提
 
-ChatGPTを利用する前提です。モデル・プラン・連携機能を固定せず、利用中の画面で使える方法を選びます。GitHub連携や直接保存が使えなくても、ChatGPTの出力をコピーして保存する経路で進められます。記録形式は持ち出せるUTF-8 Markdownです。
+標準の案内はChatGPTです。GitHub Copilotも選べ、慣れている人はClaude Codeでも利用できます。用紙の「ChatGPTへの依頼」は、各ツールへ渡す依頼文としても使えます。モデル・プラン・連携機能を固定せず、利用中の画面で使える方法を選びます。GitHub連携や直接保存が使えなくても、ChatGPTの出力をコピーして保存する経路で進められます。記録形式は持ち出せるUTF-8 Markdownです。
 
-[当初の要件定義書](docs/my-portfolio-university-requirements.md)は原文として保管し、今回の方針を[ChatGPT利用前提の改訂要件](docs/chatgpt-requirements.md)へ記載しています。[受入確認](docs/acceptance.md) ／ [変更履歴](CHANGELOG.md) ／ [公式情報と利用環境](docs/chatgpt-environment.md)
+[要件定義書](docs/my-portfolio-university-requirements.md)は現行仕様として管理し、リポジトリの更新時にそのファイル自体を書き換えます。過去の版はGit履歴で確認できます。[受入確認](docs/acceptance.md) ／ [変更履歴](CHANGELOG.md) ／ [公式情報と利用環境](docs/chatgpt-environment.md)
 
 教材の改善は架空の再現例で相談してください。Issue・PRへ実記録、応募書類、相談本文を送らないでください。[保守ガイド](docs/maintenance.md)
 

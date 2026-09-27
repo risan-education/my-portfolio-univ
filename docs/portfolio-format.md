@@ -2,7 +2,7 @@
 
 仕様の版: 1.0 ／ 採用日: 2026-09-27
 
-利用手順は[ChatGPT前提](chatgpt-requirements.md)です。ChatGPTへの依頼文と記録本文を分け、[保存と再読込](saving.md)まで行います。
+利用手順は[現行の要件定義書](my-portfolio-university-requirements.md)に従います。標準のChatGPTに加え、Copilot・Claude Codeでも同じ記録形式を使えます。ChatGPTへの依頼文と記録本文を分け、[保存と再読込](saving.md)まで行います。
 
 中高生版の[共通仕様1.0](https://github.com/risan-education/my-portfolio-teens/blob/main/docs/portfolio-format.md)を確認して、本教材向けに説明を整理しました。原文の複製ではありません。照合範囲は[参照元](sources.md)。
 

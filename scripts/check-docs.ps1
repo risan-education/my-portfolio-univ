@@ -41,6 +41,8 @@ foreach ($dir in @('docs', 'templates', 'examples', 'profile', 'experiences', 'p
     $path = Join-Path $rootPath $dir
     if (Test-Path -LiteralPath $path) { $files += @(Get-ChildItem -LiteralPath $path -File -Recurse -Filter '*.md') }
 }
+$copilotInstructions = Join-Path $rootPath '.github/copilot-instructions.md'
+if (Test-Path -LiteralPath $copilotInstructions) { $files += Get-Item -LiteralPath $copilotInstructions }
 foreach ($file in $files) {
     $rel = Relative $file.FullName
     try { $body = Read-Text $file.FullName }
@@ -88,7 +90,7 @@ foreach ($file in $files) {
     }
 }
 
-foreach ($required in @('README.md','AGENTS.md','CHATGPT.md','LICENSE','VERSION','CHANGELOG.md','docs/acceptance.md','templates/README.md','examples/README.md','docs/getting-started.md','docs/saving.md','docs/chatgpt-environment.md','docs/chatgpt-requirements.md','docs/chatgpt-prompts.md','examples/chatgpt-workflow.md')) {
+foreach ($required in @('README.md','AGENTS.md','CHATGPT.md','LICENSE','VERSION','CHANGELOG.md','docs/acceptance.md','templates/README.md','examples/README.md','docs/getting-started.md','docs/saving.md','docs/chatgpt-environment.md','docs/my-portfolio-university-requirements.md','docs/copilot.md','docs/claude-code.md','.github/copilot-instructions.md','examples/copilot-workflow.md','docs/chatgpt-prompts.md','examples/chatgpt-workflow.md')) {
     if (-not (Test-Path -LiteralPath (Join-Path $rootPath $required))) { Report "missing required file: $required" }
 }
 if (Test-Path -LiteralPath (Join-Path $rootPath 'VERSION')) {
@@ -123,9 +125,8 @@ if ((Test-Path -LiteralPath $sourceDir) -and (Test-Path -LiteralPath $copyDir)) 
     }
 } else { Report 'migration fixture directory missing' }
 
-# Hashes freeze the supplied document and the example submitted version.
+# Freeze the submitted example; requirements are a living document.
 $frozen = @{
-    'docs/my-portfolio-university-requirements.md' = '27348D905A67EAFA84EB0A795BF308A5624905670FD522740028E1E207A9C52A'
     'examples/journey/derived/application-a-submitted.md' = '8B90990165A28A4FAE45DA034D8A8B625A52262DB24C4EAEFD3B872BC0267CEE'
 }
 foreach ($entry in $frozen.GetEnumerator()) {

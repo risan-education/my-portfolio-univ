@@ -4,7 +4,7 @@
 
 | 資料 | 確認・採用した範囲 |
 | --- | --- |
-| [ユーザー提供の要件定義書0.7](my-portfolio-university-requirements.md) | 原文をそのまま保存。今回の実装判断はacceptance.mdへ分離 |
+| [現行の要件定義書](my-portfolio-university-requirements.md) | 提供された0.7を起点に、合意した仕様変更を同じファイルへ反映。過去の版はGit履歴、検証結果はacceptance.mdで管理 |
 | [中高生版・共通仕様1.0](https://github.com/risan-education/my-portfolio-teens/blob/main/docs/portfolio-format.md) | GitHub接続経由で本文確認。新規形式、旧記録保持、コピー対応、指示分離を採用 |
 | [中高生版・大学版への移行](https://github.com/risan-education/my-portfolio-teens/blob/main/docs/migration-to-univ.md) | 本文確認。legacy/teens-01/で相対配置を保持、衝突時にまとまりを変更する方式 |
 | [中高生版・索引](https://github.com/risan-education/my-portfolio-teens/blob/main/docs/record-index.md) | 本文確認。任意、許可範囲、実績からの除外、停止の反映 |
@@ -18,7 +18,7 @@
 
 0.1.0作成時は上記3資料をmainで取得し、返された最終更新時刻は2026-09-26T23:06:08Zでした。0.2.1では下記の開始・移行資料を追加確認しました。固定コミットの照合は未実施です。将来の変更は再確認してください。
 
-要件書にある小学生版・参考記事等の調査記述は提供された原文の記述です。今回それら全体を再検証したわけではありません。
+小学生版・参考記事等の初期調査は提供された0.7時点の調査を起点にしています。今回それら全体を再検証したわけではありません。
 別添の「3版共通のライセンス適用メモ」は未提供で、中高生版の同名URLでも取得できませんでした。[このリポジトリの適用メモ](my-portfolio-license-adoption.md)を別途作成し、他の2リポジトリは変更していません。
 
 ## ChatGPT利用手順の参照元（0.2.0）
@@ -54,3 +54,20 @@
 | [GitHub・ファイル追加](https://docs.github.com/en/repositories/working-with-files/managing-files/adding-a-file-to-a-repository) | ブラウザでのアップロード・コミット、100ファイル／25 MiBの制限 |
 
 中高生版にある大学生版の開発段階の記述は、このリポジトリの現行状態を示すものとして転記していません。他リポジトリのライセンスや設定を、この教材や本人の記録へ自動適用しません。
+
+## Copilot・Claude Codeの参照元（0.3.0）
+
+確認日: 2026-09-27。以下の公式本文を確認しました。学生認証・特典有効化・VS Code・Claude Codeの実アカウント操作は未検証です。
+
+| 資料 | 確認した範囲 |
+| --- | --- |
+| [GitHub・学生向けCopilot](https://docs.github.com/en/copilot/how-tos/copilot-on-github/set-up-copilot/enable-copilot/set-up-for-students) | 学生認証・特典有効化の区別、反映待ち、毎月の資格再評価 |
+| [GitHub・学生申請](https://docs.github.com/en/education/about-github-education/github-education-for-students/apply-to-github-education-as-a-student) | 在学証明と学校メールの条件、Education benefitsからの申請 |
+| [GitHub・Copilotプラン](https://docs.github.com/en/copilot/get-started/plans) | Copilot StudentとFreeの区別、利用枠があること |
+| [VS Code・Copilot設定](https://code.visualstudio.com/docs/setup/copilot) | サインイン、アカウント、利用状況とデータ取扱設定 |
+| [VS Code・指示ファイル](https://code.visualstudio.com/docs/agent-customization/custom-instructions) | .github/copilot-instructions.mdの配置、環境・設定による適用 |
+| [VS Code・Chat](https://code.visualstudio.com/docs/chat/chat-overview) | Chatでの相談とファイル編集の入口 |
+| [GitHub Desktop・clone](https://docs.github.com/en/desktop/adding-and-cloning-repositories/cloning-and-forking-repositories-from-github-desktop) | 本人用リポジトリをパソコンへ複製する操作 |
+| [GitHub Desktop・コミットとpush](https://docs.github.com/en/desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project-in-github-desktop) | 差分の確認、対象ファイルの選択、コミットとPush origin |
+| [Claude Code・開始手順](https://code.claude.com/docs/en/quickstart) | 導入、アカウント・課金経路、フォルダでの起動 |
+| [Claude Code・指示ファイル](https://code.claude.com/docs/en/memory) | AGENTS.mdの適用条件、CLAUDE.mdからの参照 |

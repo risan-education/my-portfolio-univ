@@ -76,6 +76,17 @@ try {
         Remove-Item -LiteralPath $instruction
         Expect 'missing ChatGPT instructions' 1 'missing required file: CHATGPT.md'
     } finally { [IO.File]::WriteAllBytes($instruction, $instructionBytes) }
+    $requirements = Join-Path $fixtureRoot 'docs/my-portfolio-university-requirements.md'
+    $requirementsBytes = [IO.File]::ReadAllBytes($requirements)
+    try {
+        [IO.File]::AppendAllText($requirements, "`n要件の更新を許容する検査用の追記。`n", $encoding)
+        Expect 'requirements can be updated' 0 'PASS:'
+    } finally { [IO.File]::WriteAllBytes($requirements, $requirementsBytes) }
+    try {
+        Remove-Item -LiteralPath $requirements
+        Expect 'missing current requirements' 1 'missing required file: docs/my-portfolio-university-requirements.md'
+    } finally { [IO.File]::WriteAllBytes($requirements, $requirementsBytes) }
+
     Expect 'restored fixture' 0 'PASS:'
     Write-Output "PASS: $passed checker scenarios"
 } finally {
