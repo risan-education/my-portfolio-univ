@@ -40,6 +40,10 @@
 | # | 会社 | 公式資料（確認日） | ブログ記事 | 教材の着眼点 |
 | --- | --- | --- | --- | --- |
 | 1 | トヨタ自動車 | [新卒採用情報（募集要項）](https://recruit.toyota/saiyo/info/)、[採用スケジュール](https://recruit.toyota/saiyo/schedule/)、[Sustainability Data Book 2025](https://global.toyota/pages/global_toyota/sustainability/report/sdb/sdb25_jp.pdf)（2026-09-27） | [【企業分析#1】トヨタ（7203）](https://risan.jpn.org/?p=13171) | 予想と合わない測定結果から手順を疑い、条件をそろえて班で続ける。「点ではなく線」は公式の記述、Big Fiveの読み替えはブログの予想 |
+| 2 | 三菱商事 | [選考プロセス](https://www.career-mc.com/newgraduate/recruit/process.html)、[新卒採用FAQ](https://www.career-mc.com/newgraduate/recruit/faq.html)（2026-09-27）。[募集要項](https://www.career-mc.com/newgraduate/recruit/requirement.html)は本文を取得できず、初任給はブログ記事の記載 | [【企業分析#2】三菱商事（8058）](https://risan.jpn.org/?p=13237) | 立場の違う相手から制約を聞き取り、一つの案にまとめて期限内に決める。三綱領は公式、Big Fiveの読み替えはブログの予想 |
+| 3 | ニトリ | [新卒採用情報（募集要項）](https://www.nitori.co.jp/recruit/newgraduate/recruitinfo/)、[採用FAQ](https://www.nitori.co.jp/recruit/newgraduate/recruitinfo/faq.html)、[INNOVATIVEコース](https://www.nitori.co.jp/recruit/internship/innovative/)（2026-09-27） | [【企業分析#3】ニトリ（9843）](https://risan.jpn.org/?p=13317) | 経験の違う人が混ざる現場で、相手に合わせて聞き取り、手順を共有して改善を続ける。IT人材採用の「4C主義」は公式、総合職のBig Fiveの読み替えはブログの予想 |
+| 4 | キーエンス | [募集要項](https://www.keyence-jobs.jp/recruit/guideline/)、[採用FAQ](https://www.keyence-jobs.jp/recruit/faq/)（2026-09-27） | [【企業分析#4】キーエンス（6861）](https://risan.jpn.org/?p=13328) | 感覚で語られていた問題を数字で追い、原因を切り分けて次の行動を決める。行動指針は公式、Big Fiveの読み替えはブログの予想（記事自身が確度は低めと記載） |
+| 5 | Google | [採用プロセス](https://www.google.com/about/careers/applications/how-we-hire?hl=ja_jp)（本文を取得できず、内容はブログ記事の記載）、[re:Work 構造化面接ガイド](https://rework.withgoogle.com/intl/en/guides/a-guide-to-structured-interviewing-for-better-hiring-practices)（2026-09-27） | [【企業分析#5】Google](https://risan.jpn.org/?p=13342) | 使われなかった原因を利用者から学び、何を達成しどう測るかを決めて作り直す。「何をして・何を達成し・どう測ったか」の書き方は公式の推奨、Big Fiveの読み替えはブログの予想 |
 
 ブログ記事の年収・離職率などの数値はこの教材に転載せず、記事へのリンクで代替します。インターンシップの応募時期など、公式ページで再確認できなかった項目は「ブログ記事の記載」と明示しています。
 
