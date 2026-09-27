@@ -4,11 +4,21 @@
 
 授業、アルバイト、研究、趣味、生活の工夫を一言で伝えるところから始めます。ChatGPTが整理を手伝い、本人が確かめた記録を自分用の保存先へ残します。第一目的は就活対策。同じ記録から、次のChatGPT相談で使う背景情報も作れます。
 
-版: **0.2.0** ／ [初期設定](docs/getting-started.md) ／ [ChatGPTへの共通指示](CHATGPT.md) ／ [依頼文を選ぶ](docs/chatgpt-prompts.md)
+版: **0.2.1** ／ [ChatGPTの登録・契約から始める](docs/getting-started.md) ／ [ChatGPTへの共通指示](CHATGPT.md) ／ [依頼文を選ぶ](docs/chatgpt-prompts.md)
+
+## 初めての人・中高生版から続ける人
+
+| 今の状況 | ここから進めます |
+| --- | --- |
+| ChatGPTを初めて使う | [アカウント登録・有料契約の選び方・初期設定](docs/getting-started.md) |
+| GitHubの保存先を作りたい | [GitHub登録・大学生版を本人用Privateへコピー](docs/github-basics.md) |
+| 中高生版に自分の記録がある | [データを移して大学生版で続ける手順](docs/migration.md) |
+
+中高生版から続ける人は、既存のChatGPT・GitHubアカウントを使えます。過去の記録は本人用の保存先から、新しい本人用Privateの `legacy/teens-01/` 等へ選んでコピーします。有料プランの再契約や、公開配布元への個人データのアップロードは不要です。
 
 ## 最初の1件をChatGPTと作る
 
-1. [初期設定](docs/getting-started.md)でChatGPTと本人用の非公開保存先を用意します。
+1. [登録・契約からの初期設定](docs/getting-started.md)でChatGPTと本人用の非公開保存先を用意し、架空の保存練習を行います。
 2. [CHATGPT.md](CHATGPT.md)の本文を最初のメッセージ、または利用するプロジェクトの指示として渡します。
 3. 次の依頼と[一言メモ用紙](templates/quick-note.md)を渡します。ファイルを添付できなければ本文を貼り付けます。
 

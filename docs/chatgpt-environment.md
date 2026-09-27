@@ -4,6 +4,8 @@
 
 ## 基本の使い方
 
+[ChatGPTの登録・契約からの開始手順](getting-started.md)と[GitHubの準備](github-basics.md)を先に使えます。無料・有料の選択と、GitHubへの書き込み権限の確認は別です。
+
 ChatGPTに目的と必要な資料を渡し、整理案を確認します。資料は利用できるファイル添付、または本文の貼り付けで渡します。本教材のMarkdownはどちらでも使える構造です。[公式のChatGPT利用案内](https://learn.chatgpt.com/docs/use-chatgpt)
 
 継続相談にはプロジェクトが使えます。通常のChatGPTプロジェクトに資料を置くことと、パソコンのフォルダを直接操作できることは別です。フォルダへのアクセスを設定したローカル環境では、実際のアクセス範囲を確認して使います。[公式のプロジェクト案内](https://learn.chatgpt.com/docs/projects)
