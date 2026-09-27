@@ -97,6 +97,11 @@ try {
         $body = [regex]::Replace([IO.File]::ReadAllText($path), '(?m)^- 字数: \d+字', '- 字数: 1字')
         [IO.File]::WriteAllText($path, $body, $encoding)
     } 'gakuchika character count mismatch'
+    Mutate-And-Check 'examples/gakuchika/companies/01-toyota.md' {
+        param($path)
+        $body = [IO.File]::ReadAllText($path).Replace('## 架空の文章', "## 架空の文章" + [Environment]::NewLine + ('あ' * 401))
+        [IO.File]::WriteAllText($path, $body, $encoding)
+    } 'gakuchika answer missing or over limit 400'
     $gakuchika = Join-Path $fixtureRoot 'examples/gakuchika/01-it.md'
     $gakuchikaBytes = [IO.File]::ReadAllBytes($gakuchika)
     try {

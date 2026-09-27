@@ -92,7 +92,7 @@ foreach ($file in $files) {
     }
 }
 
-foreach ($required in @('README.md','AGENTS.md','CHATGPT.md','LICENSE','VERSION','CHANGELOG.md','docs/acceptance.md','templates/README.md','examples/README.md','docs/getting-started.md','docs/saving.md','docs/chatgpt-environment.md','docs/my-portfolio-university-requirements.md','docs/copilot.md','docs/claude-code.md','.github/copilot-instructions.md','examples/copilot-workflow.md','docs/chatgpt-prompts.md','examples/chatgpt-workflow.md','docs/gakuchika.md','docs/choosing-gakuchika-theme.md','docs/gakuchika-sources.md','templates/gakuchika.md','templates/gakuchika-theme.md','examples/gakuchika/README.md','CLAUDE.md','CONTRIBUTING.md','SECURITY.md','practice/README.md','.github/PULL_REQUEST_TEMPLATE.md','.github/ISSUE_TEMPLATE/improvement.yml','.github/workflows/release.yml','CHATGPT-short.md','docs/chatgpt-github.md','templates/ai-context-current.md','templates/work-experience.md','docs/after-university.md','docs/ai.md','NOTICE.md','scripts/check_docs.py')) {
+foreach ($required in @('README.md','AGENTS.md','CHATGPT.md','LICENSE','VERSION','CHANGELOG.md','docs/acceptance.md','templates/README.md','examples/README.md','docs/getting-started.md','docs/saving.md','docs/chatgpt-environment.md','docs/my-portfolio-university-requirements.md','docs/copilot.md','docs/claude-code.md','.github/copilot-instructions.md','examples/copilot-workflow.md','docs/chatgpt-prompts.md','examples/chatgpt-workflow.md','docs/gakuchika.md','docs/choosing-gakuchika-theme.md','docs/gakuchika-sources.md','templates/gakuchika.md','templates/gakuchika-theme.md','examples/gakuchika/README.md','examples/gakuchika/companies/README.md','CLAUDE.md','CONTRIBUTING.md','SECURITY.md','practice/README.md','.github/PULL_REQUEST_TEMPLATE.md','.github/ISSUE_TEMPLATE/improvement.yml','.github/workflows/release.yml','CHATGPT-short.md','docs/chatgpt-github.md','templates/ai-context-current.md','templates/work-experience.md','docs/after-university.md','docs/ai.md','NOTICE.md','scripts/check_docs.py')) {
     if (-not (Test-Path -LiteralPath (Join-Path $rootPath $required))) { Report "missing required file: $required" }
 }
 if (Test-Path -LiteralPath (Join-Path $rootPath 'VERSION')) {
@@ -173,6 +173,24 @@ foreach ($name in @('01-it','02-manufacturing','03-finance','04-trading','05-ret
     }
 }
 
+# Company-specific fictional essays share the industry essays' 400-character contract.
+$companyCount = 0
+foreach ($file in (Get-ChildItem -LiteralPath (Join-Path $rootPath 'examples/gakuchika/companies') -Filter '*.md' -File | Sort-Object Name)) {
+    if ($file.Name -eq 'README.md') { continue }
+    $relative = "examples/gakuchika/companies/$($file.Name)"
+    $companyCount++
+    $body = Read-Text $file.FullName
+    $match = [regex]::Match($body, '(?ms)^## 架空の文章\r?\n(?<answer>.+?)(?=^## |\z)')
+    $answer = $match.Groups['answer'].Value -replace '\s', ''
+    if (-not $match.Success -or $answer.Length -eq 0 -or $answer.Length -gt 400) {
+        Report "$relative : gakuchika answer missing or over limit 400"
+    }
+    $declared = [regex]::Match($body, '(?m)^- 字数: (?<count>\d+)字／400字以内。')
+    if (-not $declared.Success -or [int]$declared.Groups['count'].Value -ne $answer.Length) {
+        Report "$relative : gakuchika character count mismatch"
+    }
+}
+
 # The distribution ships only README.md inside personal record folders; real records never belong here.
 $recordFolders = @('profile', 'experiences', 'projects', 'reflections', 'annual-review', 'assets', 'career', 'derived', 'practice')
 foreach ($dir in $recordFolders) {
@@ -210,5 +228,5 @@ if ($errors.Count) {
     Write-Output "FAIL: $($errors.Count) problem(s)"
     exit 1
 }
-Write-Output "PASS: $($files.Count) Markdown files, $links local links, $recordCount new activity records, $fixtureCount identical migration copies, $worksheetCount ChatGPT worksheets, $gakuchikaCount fictional industry essays, $warningCount labeled fictional records; frozen files, application limits, facts, empty record folders and license notices verified."
+Write-Output "PASS: $($files.Count) Markdown files, $links local links, $recordCount new activity records, $fixtureCount identical migration copies, $worksheetCount ChatGPT worksheets, $gakuchikaCount fictional industry essays, $companyCount fictional company essays, $warningCount labeled fictional records; frozen files, application limits, facts, empty record folders and license notices verified."
 exit 0

@@ -4,7 +4,7 @@
 
 授業、アルバイト、研究、趣味、生活の工夫を一言で伝えるところから始めます。AIが整理を手伝い、本人が確かめた記録を自分用の保存先へ残します。主目的は、本人の経験に基づくガクチカの作成です。自己分析・仕事選び・ES・面接にもつなげます。同じ記録は、卒業後もAIに自分を説明するための「外部記憶」になり、次のChatGPT相談に渡す背景情報を作れます。
 
-版: **0.5.1** ／ [ChatGPTの登録・契約から始める](docs/getting-started.md) ／ [ChatGPTへの共通指示](CHATGPT.md)（[短縮版](CHATGPT-short.md)） ／ [依頼文を選ぶ](docs/chatgpt-prompts.md)
+版: **0.6.0** ／ [ChatGPTの登録・契約から始める](docs/getting-started.md) ／ [ChatGPTへの共通指示](CHATGPT.md)（[短縮版](CHATGPT-short.md)） ／ [依頼文を選ぶ](docs/chatgpt-prompts.md)
 
 ## 5分で始める
 
@@ -36,6 +36,7 @@ GitHub Educationで認証された学生はCopilot Studentを無料で利用で�
 | テーマが決まらない | [経験から選ぶ・これからの問いを考える](docs/choosing-gakuchika-theme.md) |
 | 作り方を詳しく知りたい | [意味・自己PRとの違い・構成・事実確認・面接](docs/gakuchika.md) |
 | 業種ごとの例を見たい | [10業種の作り方と400字以内の架空文章](examples/gakuchika/README.md) |
+| 志望企業を想定した例を見たい | [企業別の例（親向けブログの企業分析と対応）](examples/gakuchika/companies/README.md) |
 | ChatGPTと自分の材料を整理したい | [テーマ選び用紙](templates/gakuchika-theme.md) → [構成・確認用紙](templates/gakuchika.md) |
 | 調査の根拠を確認したい | [採用側の公式情報と中高生版の参照箇所](docs/gakuchika-sources.md) |
 

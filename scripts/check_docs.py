@@ -132,7 +132,7 @@ for file in files:
         elif activity == '未確認' and not file.name.startswith('date-unknown-'):
             report(f'{rel} : unknown date/name mismatch')
 
-REQUIRED = ['README.md', 'AGENTS.md', 'CHATGPT.md', 'LICENSE', 'NOTICE.md', 'VERSION', 'CHANGELOG.md', 'docs/acceptance.md', 'templates/README.md', 'examples/README.md', 'docs/getting-started.md', 'docs/saving.md', 'docs/chatgpt-environment.md', 'docs/my-portfolio-university-requirements.md', 'docs/copilot.md', 'docs/claude-code.md', '.github/copilot-instructions.md', 'examples/copilot-workflow.md', 'docs/chatgpt-prompts.md', 'examples/chatgpt-workflow.md', 'docs/gakuchika.md', 'docs/choosing-gakuchika-theme.md', 'docs/gakuchika-sources.md', 'templates/gakuchika.md', 'templates/gakuchika-theme.md', 'examples/gakuchika/README.md', 'CLAUDE.md', 'CONTRIBUTING.md', 'SECURITY.md', 'practice/README.md', '.github/PULL_REQUEST_TEMPLATE.md', '.github/ISSUE_TEMPLATE/improvement.yml', '.github/workflows/release.yml', 'CHATGPT-short.md', 'docs/chatgpt-github.md', 'templates/ai-context-current.md', 'templates/work-experience.md', 'docs/after-university.md', 'docs/ai.md', 'scripts/check-docs.ps1']
+REQUIRED = ['README.md', 'AGENTS.md', 'CHATGPT.md', 'LICENSE', 'NOTICE.md', 'VERSION', 'CHANGELOG.md', 'docs/acceptance.md', 'templates/README.md', 'examples/README.md', 'docs/getting-started.md', 'docs/saving.md', 'docs/chatgpt-environment.md', 'docs/my-portfolio-university-requirements.md', 'docs/copilot.md', 'docs/claude-code.md', '.github/copilot-instructions.md', 'examples/copilot-workflow.md', 'docs/chatgpt-prompts.md', 'examples/chatgpt-workflow.md', 'docs/gakuchika.md', 'docs/choosing-gakuchika-theme.md', 'docs/gakuchika-sources.md', 'templates/gakuchika.md', 'templates/gakuchika-theme.md', 'examples/gakuchika/README.md', 'examples/gakuchika/companies/README.md', 'CLAUDE.md', 'CONTRIBUTING.md', 'SECURITY.md', 'practice/README.md', '.github/PULL_REQUEST_TEMPLATE.md', '.github/ISSUE_TEMPLATE/improvement.yml', '.github/workflows/release.yml', 'CHATGPT-short.md', 'docs/chatgpt-github.md', 'templates/ai-context-current.md', 'templates/work-experience.md', 'docs/after-university.md', 'docs/ai.md', 'scripts/check-docs.ps1']
 for required in REQUIRED:
     if not (ROOT / required).exists():
         report(f'missing required file: {required}')
@@ -221,6 +221,22 @@ for name in ['01-it', '02-manufacturing', '03-finance', '04-trading', '05-retail
     if not declared or int(declared.group('count')) != len(answer):
         report(f'{rel} : gakuchika character count mismatch')
 
+# Company-specific fictional essays share the industry essays' 400-character contract.
+company_count = 0
+for path in sorted((ROOT / 'examples/gakuchika/companies').glob('*.md')):
+    if path.name == 'README.md':
+        continue
+    rel = relative(path)
+    company_count += 1
+    body = read_text(path)
+    match = re.search(r'(?ms)^## 架空の文章\r?\n(?P<answer>.+?)(?=^## |\Z)', body)
+    answer = re.sub(r'\s', '', match.group('answer')) if match else ''
+    if not match or len(answer) == 0 or len(answer) > 400:
+        report(f'{rel} : gakuchika answer missing or over limit 400')
+    declared = re.search(r'(?m)^- 字数: (?P<count>\d+)字／400字以内。', body)
+    if not declared or int(declared.group('count')) != len(answer):
+        report(f'{rel} : gakuchika character count mismatch')
+
 # The distribution ships only README.md inside personal record folders; real records never belong here.
 for d in ['profile', 'experiences', 'projects', 'reflections', 'annual-review', 'assets', 'career', 'derived', 'practice']:
     path = ROOT / d
@@ -262,4 +278,4 @@ if errors:
         print(f'ERROR: {problem}')
     print(f'FAIL: {len(errors)} problem(s)')
     sys.exit(1)
-print(f'PASS: {len(files)} Markdown files, {links} local links, {record_count} new activity records, {fixture_count} identical migration copies, {worksheet_count} ChatGPT worksheets, {gakuchika_count} fictional industry essays, {warning_count} labeled fictional records; frozen files, application limits, facts, empty record folders and license notices verified.')
+print(f'PASS: {len(files)} Markdown files, {links} local links, {record_count} new activity records, {fixture_count} identical migration copies, {worksheet_count} ChatGPT worksheets, {gakuchika_count} fictional industry essays, {company_count} fictional company essays, {warning_count} labeled fictional records; frozen files, application limits, facts, empty record folders and license notices verified.')
