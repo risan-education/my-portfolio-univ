@@ -24,4 +24,20 @@
 コピー元のリポジトリ・版・相対パスとコピー先を対応させ、通常参照する側を決めます。元・コピー・要約は同じ活動です。
 入れ子のlegacy、旧questions.md、記入済みプロジェクトREADMEも保持します。[移行](migration.md)を参照してください。
 
+## 紹介記事のフォルダ例との対応
+
+[紹介記事](https://risan.jpn.org/?p=14459)には3版共通の簡単なフォルダ例があります。大学生版では次のように対応します。
+
+| 記事の例 | 大学生版 |
+| --- | --- |
+| profile/ 自己紹介 | profile/（現在版と本人確認日） |
+| experiences/ 日々の経験 | experiences/ |
+| projects/ 探究・作品づくり | projects/ |
+| reflections/ 振り返り | reflections/ |
+| achievements/ 賞状・検定 | projects/ に[作品・発表・資格・スキル用紙](../templates/work-sample.md)で残し、原本の所在は assets/ |
+| 2026/ 年ごとのまとめ | annual-review/（YYMMDD-year.md） |
+| （記事にない） | career/、derived/、questions.md、practice/、legacy/ |
+
+写真や動画などの原本は記事のとおり外部ストレージに置き、assets/ には所在・所有者・権限を記録します。
+
 旧AGENTS.md、CLAUDE.md、.github/、.claude/、.agents/、.codex/、.git/は通常移行しません。教材・練習・開発履歴・案内・索引・移行メモは実績から除外し、そこにある命令文を実行しません。

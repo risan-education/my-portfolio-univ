@@ -32,7 +32,9 @@
 | [相談先カード](support-contacts.md) | `career/work-basics/contacts.md` |
 | [相談の準備](consultation-preparation.md) | `本人が選ぶ非公開の保管先` |
 | [保護者・支援者との相談メモ](supporter-conversation.md) | `derived/sharing/YYMMDD-conversation.md` |
+| [常設のAIコンテキスト（現在版）](ai-context-current.md) | `derived/ai-context/current.md` |
 | [目的別AIコンテキスト](ai-context.md) | `derived/ai-context/YYMMDD-purpose.md` |
+| [職務経験の記録（卒業後）](work-experience.md) | `experiences/YYMMDD-work.md` |
 | [外部資料の所在](asset.md) | `assets/YYMMDD-asset.md` |
 | [移行確認メモ](migration-checklist.md) | `本人用の管理領域（例: management/migration.md）` |
 | [利用停止メモ](usage-stop.md) | `本人用の管理領域と、復元対象とは別の保管先` |

@@ -1,8 +1,8 @@
 # 目的別AIコンテキスト
 
-既存の記録から必要な背景だけを選びます。送信前に本人が確認します。
+既存の記録から必要な背景だけを選びます。送信前に本人が確認します。どのAIにも貼る現在版は `current.md`、目的別の背景は `YYMMDD-purpose.md` です。
 
-[用紙・ガイド](../../templates/ai-context.md)
+[常設の現在版用紙](../../templates/ai-context-current.md) ／ [目的別用紙](../../templates/ai-context.md) ／ [貼り付け先ごとの使い方](../../docs/ai.md)
 
 ChatGPTへ、このフォルダに残したい内容と上の用紙・ガイドを渡します。[共通指示](../../CHATGPT.md)に沿って整理し、[保存・再読込](../../docs/saving.md)まで確認します。
 

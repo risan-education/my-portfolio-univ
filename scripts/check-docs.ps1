@@ -91,7 +91,7 @@ foreach ($file in $files) {
     }
 }
 
-foreach ($required in @('README.md','AGENTS.md','CHATGPT.md','LICENSE','VERSION','CHANGELOG.md','docs/acceptance.md','templates/README.md','examples/README.md','docs/getting-started.md','docs/saving.md','docs/chatgpt-environment.md','docs/my-portfolio-university-requirements.md','docs/copilot.md','docs/claude-code.md','.github/copilot-instructions.md','examples/copilot-workflow.md','docs/chatgpt-prompts.md','examples/chatgpt-workflow.md','docs/gakuchika.md','docs/choosing-gakuchika-theme.md','docs/gakuchika-sources.md','templates/gakuchika.md','templates/gakuchika-theme.md','examples/gakuchika/README.md','CLAUDE.md','CONTRIBUTING.md','SECURITY.md','practice/README.md','.github/PULL_REQUEST_TEMPLATE.md','.github/ISSUE_TEMPLATE/improvement.yml','.github/workflows/release.yml')) {
+foreach ($required in @('README.md','AGENTS.md','CHATGPT.md','LICENSE','VERSION','CHANGELOG.md','docs/acceptance.md','templates/README.md','examples/README.md','docs/getting-started.md','docs/saving.md','docs/chatgpt-environment.md','docs/my-portfolio-university-requirements.md','docs/copilot.md','docs/claude-code.md','.github/copilot-instructions.md','examples/copilot-workflow.md','docs/chatgpt-prompts.md','examples/chatgpt-workflow.md','docs/gakuchika.md','docs/choosing-gakuchika-theme.md','docs/gakuchika-sources.md','templates/gakuchika.md','templates/gakuchika-theme.md','examples/gakuchika/README.md','CLAUDE.md','CONTRIBUTING.md','SECURITY.md','practice/README.md','.github/PULL_REQUEST_TEMPLATE.md','.github/ISSUE_TEMPLATE/improvement.yml','.github/workflows/release.yml','CHATGPT-short.md','docs/chatgpt-github.md','templates/ai-context-current.md','templates/work-experience.md','docs/after-university.md','docs/ai.md')) {
     if (-not (Test-Path -LiteralPath (Join-Path $rootPath $required))) { Report "missing required file: $required" }
 }
 if (Test-Path -LiteralPath (Join-Path $rootPath 'VERSION')) {
@@ -179,10 +179,10 @@ foreach ($dir in $recordFolders) {
     }
 }
 
-# Fictional records share the real record format, so each one carries a visible warning. The frozen submitted copy is exempt.
+# Fictional records (student journey and after-university) share the real record format, so each one carries a visible warning. The frozen submitted copy is exempt.
 $fictionalWarning = '> 教材の架空例です。本人の記録ではなく、活動実績にも数えません。'
 $warningCount = 0
-foreach ($file in @($files | Where-Object { (Relative $_.FullName) -like 'examples/journey/*' })) {
+foreach ($file in @($files | Where-Object { $r = Relative $_.FullName; $r -like 'examples/journey/*' -or $r -like 'examples/after-university/*' })) {
     $rel = Relative $file.FullName
     if ($rel -eq 'examples/journey/derived/application-a-submitted.md') { continue }
     $warningCount++

@@ -14,7 +14,7 @@ ChatGPTに目的と必要な資料を渡し、整理案を確認します。資�
 
 プラグイン等の連携は外部サービスの情報・操作を使うための仕組みです。利用できるもの、認証、権限は環境で確かめます。[公式のプラグイン案内](https://learn.chatgpt.com/docs/plugins)
 
-GitHubを使う場合は、本人用リポジトリを指定して次の順に確認します。
+GitHubを使う場合は、[接続手順](chatgpt-github.md)に沿って、本人用リポジトリを指定して次の順に確認します。
 
 1. 対象URL・所有者・ブランチ・Privateを本人が確認する。
 2. 今回許可するファイルを明示し、ChatGPTが本文を読めたか確かめる。
@@ -26,6 +26,6 @@ GitHubを使う場合は、本人用リポジトリを指定して次の順に�
 
 ## 指示書の渡し方
 
-[CHATGPT.md](../CHATGPT.md)は本人が貼り付ける共通指示です。プロジェクトの指示を使う場合も内容を明示的に渡します。[AGENTS.md](../AGENTS.md)はリポジトリ編集環境向けです。AGENTS.mdの自動探索はCodexについて説明されており、通常のChatGPTにも同じ挙動があるとは扱いません。[公式のAGENTS.md案内](https://learn.chatgpt.com/docs/agent-configuration/agents-md)
+[CHATGPT.md](../CHATGPT.md)は本人が貼り付ける共通指示です。指示欄に入らないときは[短縮版](../CHATGPT-short.md)を使い、全文は資料として渡します。プロジェクトの指示を使う場合も内容を明示的に渡します。[AGENTS.md](../AGENTS.md)はリポジトリ編集環境向けです。AGENTS.mdの自動探索はCodexについて説明されており、通常のChatGPTにも同じ挙動があるとは扱いません。[公式のAGENTS.md案内](https://learn.chatgpt.com/docs/agent-configuration/agents-md)
 
 記録を残す手順は[保存ガイド](saving.md)、使う資料の範囲は[プライバシーと利用停止](privacy.md)を参照してください。

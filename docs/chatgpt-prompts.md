@@ -28,7 +28,9 @@
 | 相談先を探す | [用紙と依頼文](../templates/support-contacts.md) | 公式窓口の対象と連絡方法 |
 | 相談の準備をする | [用紙と依頼文](../templates/consultation-preparation.md) | 見せる範囲と事実の時系列 |
 | 保護者・支援者に見せる | [用紙と依頼文](../templates/supporter-conversation.md) | 本人が選んだ内容だけ |
+| どのAIにも貼る現在版を作る | [用紙と依頼文](../templates/ai-context-current.md) | 本人確認日・見直し日・貼り付け先 |
 | 次のチャットへ引き継ぐ | [用紙と依頼文](../templates/ai-context.md) | 最新版・用途・根拠 |
+| 就職後の経験を残す | [用紙と依頼文](../templates/work-experience.md) | AIに渡してよい範囲・機密の除外 |
 | 外部原本の所在を残す | [用紙と依頼文](../templates/asset.md) | 所有者・権限・控え |
 | 中高生版から引き継ぐ | [用紙と依頼文](../templates/migration-checklist.md) | 本文保持とコピー対応 |
 | 利用停止を反映する | [用紙と依頼文](../templates/usage-stop.md) | 停止情報の最新版と対応先 |

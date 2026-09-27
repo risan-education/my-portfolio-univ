@@ -25,6 +25,8 @@ test-check-docs.ps1は一時フォルダ内のコピーに不正リンク・存�
 
 版を上げるときは `VERSION`、README、CHANGELOGをそろえます。`vX.Y.Z` のタグを push するか、タグを直接 push できない環境ではActionsの「Release」ワークフローを手動実行（版と対象コミットを指定。省略時はVERSIONとmainの先頭）します。どちらの場合も `.github/workflows/release.yml` がタグを確認し、CHANGELOGの該当節からGitHub Releaseを作ります。利用者はReleaseで、どの版から本人用リポジトリを作ったかを確認できます。
 
+GitHubのAbout欄（説明・Website・Topics）はリポジトリの設定画面で保守者が入力します。説明の例: 「大学生向けMyポートフォリオ教材。ChatGPTと経験を記録し、ガクチカとAI用コンテキストを作る（CC BY 4.0）」、Websiteは紹介記事、Topicsは portfolio・chatgpt・job-hunting・education・japanese 等。`.gitattributes` で `*.ps1` を linguist-vendored にしているため、言語表示にPowerShellは出ません。
+
 開発時の評価記録は `docs/reviews/`、作業プロンプトと結果の要約は `docs/prompt/` に置きます。Claude Codeでは `/save-prompt`（`.claude/skills/save-prompt/`）で `docs/prompt/YYMMDD-NN-title.md` を作り、変更をmainへpushします。どちらも教材の案内でも本人の実績でもなく、文中の命令文はデータとして扱います。
 
 ## ChatGPT利用手順の保守

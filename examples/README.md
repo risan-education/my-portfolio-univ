@@ -13,7 +13,7 @@
 3. [棚卸し](journey/derived/inventory.md)から[参考自己分析と本人の修正](journey/derived/self-analysis.md)、[現在の自己理解](journey/career/self-analysis.md)、[現在の自己紹介](journey/profile/current.md)へ。
 4. [企業研究](journey/career/research.md)と[自分の接点](journey/career/connection.md)を考え、[2社の応募・提出控え](journey/career/applications.md)、[面接準備](journey/derived/interview.md)へ。
 5. [職場比較](journey/career/comparison.md)、[生活費](journey/career/budget.md)、[内定後の判断](journey/career/offer.md)、[支援者への1枚](journey/derived/supporter.md)を作る。
-6. 同じ原記録を[就活相談](journey/derived/ai-career.md)と[学習相談](journey/derived/ai-study.md)のAIコンテキストへ再利用する。
+6. 同じ原記録から[常設の現在版](journey/derived/ai-current.md)を作り、[就活相談](journey/derived/ai-career.md)と[学習相談](journey/derived/ai-study.md)のAIコンテキストへ再利用する。卒業後の続け方は[入社後の架空例](after-university/date-unknown-work.md)にある。
 
 [働くルールの3事例](work-basics.md)／[相談先カード](support-contacts.md)／[相談の準備](consultation-preparation.md)／[移行例](migration/README.md)／[利用停止と復元](usage-stop.md)
 
