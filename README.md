@@ -70,10 +70,6 @@ IT、メーカー、金融、商社、小売、コンサルティング、広告
 
 標準の案内はChatGPTです。GitHub Copilotも選べ、慣れている人はClaude Codeでも利用できます。用紙の「ChatGPTへの依頼」は、各ツールへ渡す依頼文としても使えます。モデル・プラン・連携機能を固定せず、利用中の画面で使える方法を選びます。GitHub連携や直接保存が使えなくても、ChatGPTの出力をコピーして保存する経路で進められます。記録形式は持ち出せるUTF-8 Markdownです。
 
-[要件定義書](docs/my-portfolio-university-requirements.md)は現行仕様として管理し、リポジトリの更新時にそのファイル自体を書き換えます。過去の版はGit履歴で確認できます。[受入確認](docs/acceptance.md) ／ [変更履歴](CHANGELOG.md) ／ [公式情報と利用環境](docs/chatgpt-environment.md)
-
-教材の改善は架空の再現例で相談してください。Issue・PRへ実記録、応募書類、相談本文を送らないでください。[保守ガイド](docs/maintenance.md)
-
 Copyright © 2026 adash333
 
 教材の配布元: risan-education

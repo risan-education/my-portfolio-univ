@@ -30,6 +30,10 @@
 ## 配布教材の保守
 用紙・ガイド・架空例・受入確認を対応させる。PowerShell 7でscripts/check-docs.ps1を実行する。教材はCC BY 4.0、Copyright © 2026 adash333。第三者の表示を保持し、利用者の記録に教材ライセンスを自動適用しない。
 
+教材の改善は架空の再現例で相談する。Issue・PRへ実記録、応募書類、相談本文を送らない。[保守ガイド](docs/maintenance.md)に従う。
+
+[受入確認](docs/acceptance.md) ／ [変更履歴](CHANGELOG.md) ／ [公式情報と利用環境](docs/chatgpt-environment.md)
+
 ## ChatGPTとの対話・出力・保存
 - 通常のChatGPT利用者にはCHATGPT.mdを最初のメッセージまたはプロジェクトの指示として明示的に渡す導線を使う。AGENTS.mdの自動読込を全ChatGPT環境へ一般化しない。
 - 用紙はChatGPTの出力形式として使い、本人は一言・必要な資料・訂正を伝える。用途に必要な質問を少数ずつ行い、全項目の記入を強制しない。
