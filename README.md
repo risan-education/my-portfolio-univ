@@ -50,7 +50,7 @@ IT、メーカー、金融、商社、小売、コンサルティング、広告
 | したいこと | 使うガイド |
 | --- | --- |
 | 日々の経験を残す・深める・振り返る | [記録と振り返り](docs/recording.md) |
-| 経験を棚卸しし、応募の準備をする | [就活の流れ](docs/career.md) |
+| 経験を棚卸しし、応募の準備をする | [就活の流れ](docs/career.md) ／ [2027年卒の実際の就活タイムライン](docs/job-hunting-timeline-2027.md) |
 | 得意・苦手・好き・嫌いを整理する | [参考自己分析](docs/self-analysis.md) |
 | 職場を比較し、内定後に選ぶ | [企業比較と意思決定](docs/workplace-and-offers.md) |
 | 働くルールと相談先を調べる | [働く準備](docs/work-basics.md) |
